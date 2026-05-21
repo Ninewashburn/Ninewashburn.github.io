@@ -40,6 +40,57 @@
     --container-width: 1200px;
 }
 
+/* --- Mode Clair (Light Theme) --- */
+body.light-theme {
+    --bg-main: #f8fafc;          /* Fond de page clair (Slate 50) */
+    --bg-surface: #ffffff;       /* Fond des cartes blanc */
+    --bg-surface-hover: #f1f5f9; /* État de survol clair (Slate 100) */
+    
+    --primary: #2563eb;          /* Bleu électrique un peu plus soutenu */
+    --primary-hover: #1d4ed8;    
+    --primary-transparent: rgba(37, 99, 235, 0.08);
+    
+    --text-primary: #0f172a;     /* Texte foncé (Slate 900) */
+    --text-secondary: #475569;   /* Texte secondaire (Slate 600) */
+    --text-muted: #64748b;       /* Texte atténué (Slate 500) */
+    
+    --border-color: #e2e8f0;     /* Bordures claires (Slate 200) */
+    --border-color-hover: #cbd5e1; /* Bordures survolées */
+}
+
+/* Overrides de classes spécifiques pour le mode clair */
+body.light-theme .header {
+    background-color: rgba(248, 250, 252, 0.8);
+}
+
+body.light-theme .footer {
+    background-color: #f1f5f9;
+}
+
+body.light-theme .project-image-placeholder {
+    background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+}
+
+body.light-theme .badge-tech {
+    background-color: rgba(226, 232, 240, 0.6);
+}
+
+body.light-theme .status-portfolio { background-color: rgba(79, 70, 229, 0.1); color: #4f46e5; }
+body.light-theme .status-refont { background-color: rgba(217, 119, 6, 0.1); color: #d97706; }
+body.light-theme .status-prod { background-color: rgba(5, 150, 105, 0.1); color: #059669; }
+body.light-theme .status-finalizing { background-color: rgba(8, 145, 178, 0.1); color: #0891b2; }
+body.light-theme .status-tech { background-color: rgba(124, 58, 237, 0.1); color: #7c3aed; }
+
+body.light-theme .hero {
+    background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+}
+
+body.light-theme .hero-title {
+    background: linear-gradient(135deg, #0f172a 30%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* --- Reset & Bases --- */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -61,6 +112,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* --- Container Général --- */
@@ -206,6 +258,51 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* --- Conteneur d'actions du Header --- */
+.header-actions-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 8px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.theme-toggle-btn:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background-color: var(--primary-transparent);
+}
+
+.theme-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Affichage des icônes selon le thème */
+body:not(.light-theme) .sun-icon {
+    display: block;
+}
+body:not(.light-theme) .moon-icon {
+    display: none;
+}
+body.light-theme .sun-icon {
+    display: none;
+}
+body.light-theme .moon-icon {
+    display: block;
 }
 
 .logo {
