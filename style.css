@@ -86,9 +86,8 @@ body.light-theme .hero {
 }
 
 body.light-theme .hero-title {
-    background: linear-gradient(135deg, #0f172a 30%, #2563eb 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #0f172a;
+    text-shadow: none;
 }
 
 /* --- Reset & Bases --- */
@@ -108,7 +107,7 @@ body {
     color: var(--text-primary);
     font-family: var(--font-sans);
     line-height: 1.6;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -378,11 +377,10 @@ body.light-theme .moon-icon {
 .hero-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, var(--text-primary) 30%, #a5b4fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
+    text-shadow: 0 2px 18px rgba(15, 23, 42, 0.45);
 }
 
 .hero-subtitle {
@@ -416,7 +414,7 @@ body.light-theme .moon-icon {
     font-size: 2.25rem;
     font-weight: 800;
     margin-bottom: 12px;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
 }
 
 .section-subtitle {
@@ -452,6 +450,12 @@ body.light-theme .moon-icon {
     transition: var(--transition);
 }
 
+.project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 584px);
+}
+
 .project-card:hover {
     transform: translateY(-6px);
     border-color: var(--border-color-hover);
@@ -460,7 +464,8 @@ body.light-theme .moon-icon {
 
 /* Placeholder pour les images de projet */
 .project-image-placeholder {
-    height: 180px;
+    min-height: 180px;
+    aspect-ratio: 16 / 7;
     background: linear-gradient(135deg, #1b263b 0%, #0f172a 100%);
     display: flex;
     flex-direction: column;
@@ -473,6 +478,34 @@ body.light-theme .moon-icon {
     overflow: hidden;
 }
 
+.project-image-slot {
+    background-image:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.18) 0%, rgba(27, 38, 59, 0.42) 100%),
+        var(--project-image, none);
+    background-position: center;
+    background-size: cover;
+}
+
+#project-security-base .project-image-slot {
+    --project-image: url("assets/images/projects/security-base.png");
+}
+
+#project-nimes-alerie .project-image-slot {
+    --project-image: url("assets/images/projects/nimes-alerie.png");
+}
+
+#project-creasoka .project-image-slot {
+    --project-image: url("assets/images/projects/creasoka.png");
+}
+
+#project-bagni-plage .project-image-slot {
+    --project-image: url("assets/images/projects/bagni-plage.png");
+}
+
+#project-dora-dashboard .project-image-slot {
+    --project-image: url("assets/images/projects/dora-dashboard.png");
+}
+
 .project-image-placeholder::after {
     content: "";
     position: absolute;
@@ -480,7 +513,7 @@ body.light-theme .moon-icon {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 72%);
 }
 
 .placeholder-icon {
@@ -491,13 +524,21 @@ body.light-theme .moon-icon {
     z-index: 1;
 }
 
+.project-image-slot .placeholder-icon {
+    display: none;
+}
+
 .placeholder-text {
     font-family: var(--font-mono);
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
     z-index: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    background: rgba(11, 17, 30, 0.72);
+    backdrop-filter: blur(8px);
 }
 
 .project-content {
@@ -820,6 +861,11 @@ body.light-theme .moon-icon {
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+
+    .project-card:last-child:nth-child(odd) {
+        grid-column: auto;
+        width: 100%;
     }
     
     .skills-grid {

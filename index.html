@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renaud Meynadier | Développeur Full Stack</title>
     <meta name="description" content="Portfolio professionnel de Renaud Meynadier, Développeur Full Stack. Conception d'applications métier, création d'API REST et modernisation d'applications d'entreprise.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://ninewashburn.github.io/">
+    <meta property="og:title" content="Renaud Meynadier | Développeur Full Stack">
+    <meta property="og:description" content="Portfolio de développeur full stack orienté applications métier, API REST, refonte d'existant et interfaces web.">
+    <meta property="og:image" content="https://ninewashburn.github.io/assets/images/og-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Renaud Meynadier - Développeur Full Stack">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Renaud Meynadier | Développeur Full Stack">
+    <meta name="twitter:description" content="Portfolio de développeur full stack orienté applications métier, API REST, refonte d'existant et interfaces web.">
+    <meta name="twitter:image" content="https://ninewashburn.github.io/assets/images/og-preview.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -99,7 +112,7 @@
                     
                     <!-- Card 1: Security-Base -->
                     <article class="project-card" id="project-security-base">
-                        <div class="project-image-placeholder">
+                        <div class="project-image-placeholder project-image-slot" role="img" aria-label="Emplacement visuel du projet Security-Base">
                             <div class="placeholder-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                             </div>
@@ -130,7 +143,7 @@
 
                     <!-- Card 2: La Nîmes’Alerie -->
                     <article class="project-card" id="project-nimes-alerie">
-                        <div class="project-image-placeholder">
+                        <div class="project-image-placeholder project-image-slot" role="img" aria-label="Emplacement visuel du projet La Nîmes’Alerie">
                             <div class="placeholder-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                             </div>
@@ -161,7 +174,7 @@
 
                     <!-- Card 3: Creasoka -->
                     <article class="project-card" id="project-creasoka">
-                        <div class="project-image-placeholder">
+                        <div class="project-image-placeholder project-image-slot" role="img" aria-label="Emplacement visuel du projet Creasoka">
                             <div class="placeholder-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                             </div>
@@ -195,7 +208,7 @@
 
                     <!-- Card 4: Bagni-Plage -->
                     <article class="project-card" id="project-bagni-plage">
-                        <div class="project-image-placeholder">
+                        <div class="project-image-placeholder project-image-slot" role="img" aria-label="Emplacement visuel du projet Bagni-Plage">
                             <div class="placeholder-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                             </div>
@@ -226,7 +239,7 @@
 
                     <!-- Card 5: Dora Dashboard -->
                     <article class="project-card" id="project-dora-dashboard">
-                        <div class="project-image-placeholder">
+                        <div class="project-image-placeholder project-image-slot" role="img" aria-label="Emplacement visuel du projet Dora Dashboard">
                             <div class="placeholder-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                             </div>
@@ -394,13 +407,11 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const currentTheme = localStorage.getItem('theme');
 
-        // Détecter la préférence et appliquer le thème initial
+        // Appliquer le thème initial : sombre par défaut, clair seulement si choisi.
         if (currentTheme === 'light') {
             document.body.classList.add('light-theme');
-        } else if (currentTheme === 'dark') {
+        } else {
             document.body.classList.remove('light-theme');
-        } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-            document.body.classList.add('light-theme');
         }
 
         // Basculement de thème au clic

@@ -84,7 +84,7 @@ Liens :
 Email : mailto:meynadier.renaud@gmail.com
 LinkedIn : https://www.linkedin.com/in/renaud-m-063
 GitHub : https://github.com/Ninewashburn
-CV : /assets/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf
+CV : /assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf
 ```
 
 ### 2. Projets mis en avant
