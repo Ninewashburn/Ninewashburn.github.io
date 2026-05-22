@@ -68,7 +68,7 @@ body.light-theme .footer {
 }
 
 body.light-theme .project-image-placeholder {
-    background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+    background-color: #e2e8f0;
 }
 
 body.light-theme .badge-tech {
