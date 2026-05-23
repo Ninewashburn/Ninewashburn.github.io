@@ -8,3 +8,19 @@ bagni_plage/
 
 # Local planning / working notes
 portfolio_github_pages_renaud_meynadier.md
+
+# Temporary CV Forge concept notes and raw mockups
+cv-forge_maquette*.png
+cv_forge_scheme.png
+cvforge_synthese_fonctionnalites_et_architecture_*.md
+
+# Raw screenshots/images dropped at the repository root
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+
+# CV Forge raw source files
+/cv-*
+/cv_*
+/cvforge_*

@@ -25,6 +25,7 @@
     --status-prod: #10b981;        /* Emeraude */
     --status-finalizing: #06b6d4;  /* Cyan */
     --status-tech: #8b5cf6;        /* Violet */
+    --status-concept: #f97316;     /* Orange */
 
     /* Typographie */
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -80,6 +81,7 @@ body.light-theme .status-refont { background-color: rgba(217, 119, 6, 0.1); colo
 body.light-theme .status-prod { background-color: rgba(5, 150, 105, 0.1); color: #059669; }
 body.light-theme .status-finalizing { background-color: rgba(8, 145, 178, 0.1); color: #0891b2; }
 body.light-theme .status-tech { background-color: rgba(124, 58, 237, 0.1); color: #7c3aed; }
+body.light-theme .status-concept { background-color: rgba(234, 88, 12, 0.1); color: #ea580c; }
 
 body.light-theme .hero {
     background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
@@ -226,6 +228,7 @@ a {
 .status-prod { background-color: rgba(16, 185, 129, 0.15); color: #34d399; }
 .status-finalizing { background-color: rgba(6, 182, 212, 0.15); color: #22d3ee; }
 .status-tech { background-color: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+.status-concept { background-color: rgba(249, 115, 22, 0.15); color: #fb923c; }
 
 .badge-tech {
     background-color: rgba(39, 53, 79, 0.4);
@@ -506,6 +509,10 @@ body.light-theme .moon-icon {
     --project-image: url("assets/images/projects/dora-dashboard.png");
 }
 
+#project-cv-forge .project-image-slot {
+    --project-image: url("assets/images/projects/cv-forge.jpg");
+}
+
 .project-image-placeholder::after {
     content: "";
     position: absolute;
@@ -593,6 +600,15 @@ body.light-theme .moon-icon {
 
 .project-link:hover {
     color: var(--primary);
+}
+
+.project-link-muted {
+    color: var(--text-secondary);
+    cursor: default;
+}
+
+.project-link-muted:hover {
+    color: var(--text-secondary);
 }
 
 .link-arrow {
