@@ -539,13 +539,15 @@ body.light-theme .moon-icon {
     font-family: var(--font-mono);
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #f8fafc;
     z-index: 1;
     letter-spacing: 0;
     padding: 6px 12px;
     border-radius: var(--radius-full);
-    background: rgba(11, 17, 30, 0.72);
-    backdrop-filter: blur(8px);
+    background: rgba(11, 17, 30, 0.88);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: 0 8px 22px rgba(2, 6, 23, 0.28);
+    backdrop-filter: blur(10px);
 }
 
 .project-content {
