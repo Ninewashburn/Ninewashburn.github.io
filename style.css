@@ -413,6 +413,10 @@ body.light-theme .moon-icon {
     margin-bottom: 60px;
 }
 
+.section-header-compact {
+    margin-bottom: 32px;
+}
+
 .section-title {
     font-size: 2.25rem;
     font-weight: 800;
@@ -425,6 +429,38 @@ body.light-theme .moon-icon {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+}
+
+/* --- Build Capabilities Section --- */
+.builds {
+    padding: 56px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.builds-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.build-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    background-color: rgba(39, 53, 79, 0.36);
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+body.light-theme .build-pill {
+    background-color: #ffffff;
 }
 
 /* --- Projets Section --- */
@@ -571,8 +607,34 @@ body.light-theme .moon-icon {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     flex-grow: 1;
+}
+
+.project-proof-list {
+    display: grid;
+    gap: 8px;
+    list-style: none;
+    margin-bottom: 24px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.project-proof-list li {
+    position: relative;
+    padding-left: 18px;
+}
+
+.project-proof-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.45);
 }
 
 .project-stack {
