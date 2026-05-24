@@ -689,20 +689,35 @@ body.light-theme .build-pill {
 .skills {
     padding: 80px 0;
     border-top: 1px solid var(--border-color);
-    background-color: rgba(11, 17, 30, 0.4);
+    background:
+        radial-gradient(circle at 18% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 34%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.58) 0%, rgba(15, 23, 42, 0.36) 100%);
+}
+
+body.light-theme .skills {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(37, 99, 235, 0.06) 0%, transparent 34%),
+        linear-gradient(180deg, #f8fafc 0%, #eef4fb 100%);
+}
+
+.skills .section-header {
+    margin-bottom: 42px;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 940px;
+    margin: 0 auto;
 }
 
 .skills-category-card {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 24px;
+    padding: 24px 26px;
+    min-height: 178px;
     transition: var(--transition);
 }
 
@@ -723,13 +738,18 @@ body.light-theme .build-pill {
 .category-skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    align-items: flex-start;
 }
 
 .skill-tag {
-    background-color: rgba(11, 17, 30, 0.5);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: rgba(11, 17, 30, 0.56);
     border: 1px solid var(--border-color);
-    color: var(--text-secondary);
+    color: #cbd5e1;
     padding: 6px 12px;
     font-size: 0.85rem;
     font-weight: 500;
@@ -741,6 +761,11 @@ body.light-theme .build-pill {
     background-color: var(--primary-transparent);
     color: var(--text-primary);
     border-color: var(--primary);
+}
+
+body.light-theme .skill-tag {
+    background-color: #f1f5f9;
+    color: #334155;
 }
 
 /* --- À propos & Disponibilité --- */
@@ -812,8 +837,10 @@ body.light-theme .build-pill {
 }
 
 .availability-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(120px, 0.72fr) minmax(0, 1.28fr);
+    gap: 16px;
+    align-items: start;
     font-size: 0.9rem;
     margin-bottom: 12px;
 }
@@ -823,13 +850,16 @@ body.light-theme .build-pill {
 }
 
 .item-label {
+    min-width: 0;
     color: var(--text-muted);
 }
 
 .item-value {
+    min-width: 0;
     font-weight: 600;
     color: var(--text-primary);
     text-align: right;
+    overflow-wrap: anywhere;
 }
 
 /* --- Footer --- */
@@ -999,6 +1029,25 @@ body.light-theme .build-pill {
     
     .footer-links {
         justify-content: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .availability-card {
+        padding: 24px;
+    }
+
+    .availability-title {
+        align-items: flex-start;
+    }
+
+    .availability-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .item-value {
+        text-align: left;
     }
 }
 
