@@ -24,6 +24,39 @@
     <meta name="twitter:image" content="https://ninewashburn.github.io/assets/images/og-preview.jpg">
     <meta name="twitter:image:alt" content="Renaud Meynadier - Développeur Full Stack">
     <link rel="image_src" href="https://ninewashburn.github.io/assets/images/og-preview.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Renaud Meynadier",
+        "jobTitle": "Développeur Full Stack",
+        "url": "https://ninewashburn.github.io/",
+        "email": "mailto:meynadier.renaud@gmail.com",
+        "sameAs": [
+            "https://github.com/Ninewashburn",
+            "https://www.linkedin.com/in/renaud-m-063"
+        ],
+        "knowsAbout": [
+            "Applications métier",
+            "API REST",
+            "Angular",
+            "Laravel",
+            "Symfony",
+            "Java Spring",
+            "Refonte d'existant",
+            "Documentation technique"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Portfolio Renaud Meynadier",
+        "url": "https://ninewashburn.github.io/",
+        "inLanguage": "fr-FR"
+    }
+    </script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -238,7 +271,8 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://github.com/Ninewashburn/Creasoka" target="_blank" rel="noopener" class="project-link" id="link-git-creasoka">
-                                    Code
+                                    Voir le dépôt GitHub
+                                    <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                                 </a>
                                 <a href="https://creasoka.fr/" target="_blank" rel="noopener" class="project-link" id="link-live-creasoka">
                                     Visiter le site
@@ -356,6 +390,12 @@
                     </article>
                     
                 </div>
+                <div class="projects-export">
+                    <p>Vue structurée des projets, pratique pour lire les statuts, stacks et points clés.</p>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-export-projects">
+                        Exporter les projets en CSV
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -371,7 +411,8 @@
                     
                     <!-- Category 1: Frontend -->
                     <div class="skills-category-card" id="category-frontend">
-                        <h3 class="category-title">Frontend</h3>
+                        <h3 class="category-title">Frontend applicatif</h3>
+                        <p class="category-description">Interfaces de gestion, parcours utilisateur, formulaires et vues responsives.</p>
                         <div class="category-skills-list">
                             <span class="skill-tag">Angular</span>
                             <span class="skill-tag">React</span>
@@ -384,7 +425,8 @@
 
                     <!-- Category 2: Backend & API -->
                     <div class="skills-category-card" id="category-backend">
-                        <h3 class="category-title">Backend & API</h3>
+                        <h3 class="category-title">Backend & API métier</h3>
+                        <p class="category-description">Logique applicative, API REST, rôles, permissions et exports documentaires.</p>
                         <div class="category-skills-list">
                             <span class="skill-tag">Laravel</span>
                             <span class="skill-tag">Symfony</span>
@@ -397,20 +439,22 @@
 
                     <!-- Category 3: Données & DevOps -->
                     <div class="skills-category-card" id="category-devops">
-                        <h3 class="category-title">Données & DevOps</h3>
+                        <h3 class="category-title">Données & livraison</h3>
+                        <p class="category-description">Modélisation SQL, environnement local, versioning et publication progressive.</p>
                         <div class="category-skills-list">
                             <span class="skill-tag">PostgreSQL</span>
                             <span class="skill-tag">MySQL</span>
                             <span class="skill-tag">SQL Server</span>
                             <span class="skill-tag">Docker</span>
                             <span class="skill-tag">Git</span>
-                            <span class="skill-tag">GitHub Actions / GitLab CI</span>
+                            <span class="skill-tag">GitHub Actions</span>
                         </div>
                     </div>
 
                     <!-- Category 4: Méthodes -->
                     <div class="skills-category-card" id="category-methods">
-                        <h3 class="category-title">Méthodes</h3>
+                        <h3 class="category-title">Méthode projet</h3>
+                        <p class="category-description">Reprise d'existant, clarification des flux, documentation et maintenance évolutive.</p>
                         <div class="category-skills-list">
                             <span class="skill-tag">Applications métier</span>
                             <span class="skill-tag">Refonte d'existant</span>
@@ -421,6 +465,39 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Method Section -->
+        <section class="method" id="methode">
+            <div class="container">
+                <div class="section-header section-header-compact">
+                    <h2 class="section-title">Ma méthode de travail</h2>
+                    <p class="section-subtitle">Une approche simple pour reprendre un existant, clarifier les besoins et livrer une base maintenable.</p>
+                </div>
+
+                <div class="method-grid" id="method-container">
+                    <article class="method-step">
+                        <span class="method-index">01</span>
+                        <h3>Comprendre l'existant</h3>
+                        <p>Lire les flux, repérer les irritants, distinguer les besoins métier des habitudes techniques.</p>
+                    </article>
+                    <article class="method-step">
+                        <span class="method-index">02</span>
+                        <h3>Cadrer sobrement</h3>
+                        <p>Découper les priorités, choisir une architecture lisible et garder une trace des décisions.</p>
+                    </article>
+                    <article class="method-step">
+                        <span class="method-index">03</span>
+                        <h3>Construire utile</h3>
+                        <p>Développer par incréments, tester les parcours clés et documenter ce qui doit durer.</p>
+                    </article>
+                    <article class="method-step">
+                        <span class="method-index">04</span>
+                        <h3>Livrer et améliorer</h3>
+                        <p>Préparer la mise en ligne, vérifier les retours et rendre l'application plus simple à maintenir.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -463,6 +540,9 @@
                                 <a href="mailto:meynadier.renaud@gmail.com" class="btn btn-primary btn-block" id="btn-availability-contact">
                                     Me contacter par e-mail
                                 </a>
+                                <button type="button" class="btn btn-secondary btn-block" id="btn-copy-email" data-copy-email>
+                                    Copier l'e-mail
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -477,39 +557,21 @@
         <div class="footer-container">
             <div class="footer-info">
                 <p class="footer-copyright">&copy; 2026 Renaud Meynadier. Tous droits réservés.</p>
-                <p class="footer-location">Clermont-Ferrand &bull; Rouen &bull; Télétravail</p>
+                <p class="footer-location">Clermont-Ferrand &bull; Rouen &bull; Paris (hybride) &bull; Télétravail</p>
             </div>
-            <div class="footer-links">
-                <a href="mailto:meynadier.renaud@gmail.com" class="footer-link" id="footer-email">Email</a>
-                <a href="https://www.linkedin.com/in/renaud-m-063" target="_blank" rel="noopener" class="footer-link" id="footer-linkedin">LinkedIn</a>
-                <a href="https://github.com/Ninewashburn" target="_blank" rel="noopener" class="footer-link" id="footer-github">GitHub</a>
-                <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" class="footer-link" id="footer-cv-classic">CV Classique</a>
-                <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" class="footer-link" id="footer-cv-canva">CV Canva</a>
+            <div class="footer-nav">
+                <p class="footer-note">Portfolio statique HTML/CSS/JS, retour aux sources.</p>
+                <div class="footer-links">
+                    <a href="mailto:meynadier.renaud@gmail.com" class="footer-link" id="footer-email">Email</a>
+                    <a href="https://www.linkedin.com/in/renaud-m-063" target="_blank" rel="noopener" class="footer-link" id="footer-linkedin">LinkedIn</a>
+                    <a href="https://github.com/Ninewashburn" target="_blank" rel="noopener" class="footer-link" id="footer-github">GitHub</a>
+                    <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" class="footer-link" id="footer-cv-classic">CV Classique</a>
+                    <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" class="footer-link" id="footer-cv-canva">CV Canva</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Script pour le basculement de thème (Dark/Light mode) -->
-    <script>
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
-
-        // Appliquer le thème initial : sombre par défaut, clair seulement si choisi.
-        if (currentTheme === 'light') {
-            document.body.classList.add('light-theme');
-        } else {
-            document.body.classList.remove('light-theme');
-        }
-
-        // Basculement de thème au clic
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            let theme = 'dark';
-            if (document.body.classList.contains('light-theme')) {
-                theme = 'light';
-            }
-            localStorage.setItem('theme', theme);
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
