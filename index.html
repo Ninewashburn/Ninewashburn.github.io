@@ -114,14 +114,32 @@
                     
                     <!-- Contact / Action Buttons -->
                     <div class="hero-actions" id="hero-social-actions">
-                        <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" class="btn btn-primary" id="btn-cv-classic">
-                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            CV (Classique)
-                        </a>
-                        <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" class="btn btn-secondary" id="btn-cv-canva">
-                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            CV (Canva)
-                        </a>
+                        <div class="cv-action">
+                            <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" target="_blank" rel="noopener" class="btn btn-primary cv-main-link" id="btn-cv-classic">
+                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+                                CV (Classique)
+                            </a>
+                            <button type="button" class="btn btn-primary cv-menu-toggle" aria-label="Options du CV classique" aria-expanded="false" aria-controls="cv-classic-menu" data-cv-menu-toggle>
+                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+                            <div class="cv-menu" id="cv-classic-menu" data-cv-menu>
+                                <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" target="_blank" rel="noopener">Visualiser</a>
+                                <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack.pdf">Télécharger</a>
+                            </div>
+                        </div>
+                        <div class="cv-action">
+                            <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" target="_blank" rel="noopener" class="btn btn-secondary cv-main-link" id="btn-cv-canva">
+                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+                                CV (Canva)
+                            </a>
+                            <button type="button" class="btn btn-secondary cv-menu-toggle" aria-label="Options du CV Canva" aria-expanded="false" aria-controls="cv-canva-menu" data-cv-menu-toggle>
+                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+                            <div class="cv-menu" id="cv-canva-menu" data-cv-menu>
+                                <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" target="_blank" rel="noopener">Visualiser</a>
+                                <a href="assets/cv/Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf" download="Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf">Télécharger</a>
+                            </div>
+                        </div>
                         <a href="https://www.linkedin.com/in/renaud-m-063" target="_blank" rel="noopener" class="btn btn-secondary" id="btn-linkedin">
                             <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                             LinkedIn

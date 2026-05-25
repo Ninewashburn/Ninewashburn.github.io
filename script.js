@@ -127,6 +127,40 @@ function initCopyEmail() {
     });
 }
 
+function initCvMenus() {
+    const toggles = document.querySelectorAll("[data-cv-menu-toggle]");
+
+    function closeMenus(exceptAction = null) {
+        document.querySelectorAll(".cv-action.is-open").forEach((action) => {
+            if (action === exceptAction) {
+                return;
+            }
+
+            action.classList.remove("is-open");
+            const toggle = action.querySelector("[data-cv-menu-toggle]");
+            toggle?.setAttribute("aria-expanded", "false");
+        });
+    }
+
+    toggles.forEach((toggle) => {
+        const action = toggle.closest(".cv-action");
+
+        toggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const isOpen = action.classList.toggle("is-open");
+            toggle.setAttribute("aria-expanded", String(isOpen));
+            closeMenus(action);
+        });
+    });
+
+    document.addEventListener("click", () => closeMenus());
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeMenus();
+        }
+    });
+}
+
 function initActiveNavigation() {
     const navLinks = Array.from(document.querySelectorAll(".nav-link[href^='#']"));
     const sections = navLinks
@@ -178,5 +212,6 @@ function initRevealAnimations() {
 initThemeToggle();
 initProjectExport();
 initCopyEmail();
+initCvMenus();
 initActiveNavigation();
 initRevealAnimations();

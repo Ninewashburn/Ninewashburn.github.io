@@ -365,7 +365,7 @@ body.light-theme .moon-icon {
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 940px;
 }
 
 .hero-badge {
@@ -409,6 +409,7 @@ body.light-theme .moon-icon {
 }
 
 .hero-pitch {
+    max-width: 800px;
     font-size: 1.15rem;
     color: var(--text-secondary);
     margin-bottom: 40px;
@@ -418,7 +419,73 @@ body.light-theme .moon-icon {
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
+}
+
+.cv-action {
+    position: relative;
+    display: inline-flex;
+}
+
+.cv-action .cv-main-link {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.cv-menu-toggle {
+    width: 44px;
+    padding-inline: 10px;
+    border-left-color: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.cv-menu-toggle svg {
+    transition: transform 0.2s ease;
+}
+
+.cv-action.is-open .cv-menu-toggle svg {
+    transform: rotate(180deg);
+}
+
+.cv-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 20;
+    min-width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    box-shadow: 0 18px 38px rgba(2, 6, 23, 0.26);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.cv-action.is-open .cv-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cv-menu a {
+    display: flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.cv-menu a:hover,
+.cv-menu a:focus-visible {
+    background-color: var(--primary-transparent);
+    color: var(--text-primary);
 }
 
 /* --- Section Headers --- */
@@ -1162,8 +1229,17 @@ body.light-theme .skill-tag {
         width: 100%;
     }
     
-    .hero-actions .btn {
+    .hero-actions .btn,
+    .cv-action {
         width: 100%;
+    }
+
+    .cv-action .cv-main-link {
+        flex: 1;
+    }
+
+    .cv-menu-toggle {
+        flex: 0 0 48px;
     }
     
     .projects-grid {
