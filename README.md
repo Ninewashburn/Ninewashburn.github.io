@@ -25,7 +25,7 @@ Aucun framework, aucune compilation et aucune dépendance locale ne sont nécess
 ├── assets/
 │   ├── cv/
 │   │   ├── Renaud_Meynadier_CV_Developpeur_Fullstack.pdf
-│   │   └── Renaud_Meynadier_CV_Developpeur_Fullstack_Canva.pdf
+│   │   └── Renaud_Meynadier_CV.pdf
 │   └── images/
 │       ├── favicon.svg
 │       ├── og-preview.jpg
