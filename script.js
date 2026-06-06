@@ -5,6 +5,35 @@
 
 const EMAIL = "meynadier.renaud@gmail.com";
 
+/* ---- Locale --------------------------------------------------------------- */
+const LANG = location.pathname.startsWith("/en") ? "en" : "fr";
+const t = (obj) => (obj !== null && typeof obj === "object" && LANG in obj) ? obj[LANG] : obj;
+
+/* ---- Libellés UI ---------------------------------------------------------- */
+const UI = {
+  cvView:        { fr: "Voir le CV",                                        en: "View CV" },
+  cvVisualize:   { fr: "Visualiser",                                        en: "View" },
+  cvDownload:    { fr: "Télécharger",                                       en: "Download" },
+  copyEmail:     { fr: "Copier l'e-mail",                                   en: "Copy email" },
+  emailCopied:   { fr: "E-mail copié",                                      en: "Email copied" },
+  filterAll:     { fr: "Tous",                                              en: "All" },
+  filterEmpty:   { fr: "Aucun projet ne correspond à ce filtre.",            en: "No projects match this filter." },
+  caseLink:      { fr: "Voir le détail",                                    en: "View details" },
+  fieldContext:  { fr: "Contexte",                                          en: "Context" },
+  fieldSolution: { fr: "Solution",                                          en: "Solution" },
+  fieldStack:    { fr: "Stack",                                             en: "Stack" },
+  rowContext:    { fr: "Contexte",                                          en: "Context" },
+  rowProblem:    { fr: "Problème",                                          en: "Problem" },
+  rowSolution:   { fr: "Solution",                                          en: "Solution" },
+  rowFeatures:   { fr: "Capacités métier",                                  en: "Business capabilities" },
+  rowArch:       { fr: "Architecture technique",                            en: "Technical architecture" },
+  rowValue:      { fr: "Valeur métier",                                     en: "Business value" },
+  rowStack:      { fr: "Stack technique",                                   en: "Tech stack" },
+  visitSite:     { fr: "Visiter le site",                                   en: "Visit site" },
+  viewRepo:      { fr: "Voir le dépôt",                                     en: "View repository" },
+  close:         { fr: "Fermer",                                            en: "Close" },
+};
+
 /* ---- Icônes (Feather / Lucide, stroke = currentColor) -------------------- */
 const ICONS = {
   sun:      '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
@@ -26,18 +55,18 @@ const ICONS = {
 const icon = (name, size = 18) =>
   `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] ?? ""}</svg>`;
 
-/* ---- Données -------------------------------------------------------------- */
-const CVS = [
-  { label: "CV classique", file: "renaud-meynadier-cv-classique.pdf", url: "assets/cv/renaud-meynadier-cv-classique.pdf" },
-  { label: "CV Canva",     file: "renaud-meynadier-cv-canva.pdf",     url: "assets/cv/renaud-meynadier-cv-canva.pdf"     }
+/* ---- Données FR ----------------------------------------------------------- */
+const CVS_FR = [
+  { label: "CV classique", file: "renaud-meynadier-cv-classique.pdf", url: "/assets/cv/renaud-meynadier-cv-classique.pdf" },
+  { label: "CV Canva",     file: "renaud-meynadier-cv-canva.pdf",     url: "/assets/cv/renaud-meynadier-cv-canva.pdf"     }
 ];
 
-const PROJECTS = [
+const PROJECTS_FR = [
   {
     name: "Security-Base",
     tagline: "Projet personnel · Architecture inspirée d'environnements professionnels",
     status: { label: "Portfolio / Anonymisé", cls: "portfolio" },
-    img: "assets/images/projects/security-base.png",
+    img: "/assets/images/projects/security-base.png",
     context: "Pilotage des incidents dans un environnement métier sensible, inspiré d'un contexte professionnel.",
     problem: "Le suivi des incidents était éclaté, les droits d'accès flous et la traçabilité insuffisante pour répondre aux exigences d'audit.",
     solution: "Une application métier centralisée structurée autour d'un contrôle d'accès par rôles (RBAC), de tableaux de bord de suivi et d'exports documentaires.",
@@ -51,7 +80,7 @@ const PROJECTS = [
     name: "La Nîmes'Alerie",
     tagline: "Projet personnel · Refonte e-commerce de bout en bout",
     status: { label: "Terminé", cls: "done" },
-    img: "assets/images/projects/nimes-alerie.png",
+    img: "/assets/images/projects/nimes-alerie.png",
     context: "Ancienne boutique e-commerce monolithique devenue difficile à faire évoluer.",
     problem: "Code legacy coûteux à maintenir, front et back fortement couplés, ajout de fonctionnalités risqué.",
     solution: "Refonte vers une architecture découplée : API Symfony / API Platform d'un côté, application Angular de l'autre.",
@@ -65,7 +94,7 @@ const PROJECTS = [
     name: "Creasoka",
     tagline: "Projet client · Livré en production",
     status: { label: "En production", cls: "prod" },
-    img: "assets/images/projects/creasoka.png", thumbPos: "center",
+    img: "/assets/images/projects/creasoka.png", thumbPos: "center",
     context: "Créateur artisanal sans présence e-commerce, souhaitant vendre en ligne.",
     problem: "Besoin d'une vitrine marchande rapide, soignée et correctement référencée, livrable en production.",
     solution: "Un site e-commerce complet conçu, développé et déployé en production pour le client.",
@@ -79,7 +108,7 @@ const PROJECTS = [
     name: "Bagni-Plage",
     tagline: "Projet personnel · Application de réservation",
     status: { label: "Terminé", cls: "done" },
-    img: "assets/images/projects/bagni-plage.png",
+    img: "/assets/images/projects/bagni-plage.png",
     context: "Gestion des réservations d'emplacements de plage et de leurs options.",
     problem: "Les disponibilités devaient être suivies finement et en temps réel, avec options additionnelles et rôles distincts.",
     solution: "Une application de réservation gérant disponibilités, options et paiement, avec espaces utilisateur et administrateur.",
@@ -93,7 +122,7 @@ const PROJECTS = [
     name: "Dora Dashboard",
     tagline: "Projet personnel · Inspiré de pratiques DevOps réelles",
     status: { label: "Projet technique", cls: "tech" },
-    img: "assets/images/projects/dora-dashboard.png",
+    img: "/assets/images/projects/dora-dashboard.png",
     context: "Pilotage de la performance de livraison logicielle via les métriques DORA.",
     problem: "Les métriques de livraison étaient dispersées, sans vue consolidée pour piloter l'amélioration.",
     solution: "Un tableau de bord dédié consolidant les quatre métriques DORA avec comparaisons dans le temps.",
@@ -107,7 +136,7 @@ const PROJECTS = [
     name: "CV Forge",
     tagline: "Projet personnel · Prototype local-first",
     status: { label: "Idée / Prototype", cls: "concept" },
-    img: "assets/images/projects/cv-forge.jpg",
+    img: "/assets/images/projects/cv-forge.jpg",
     context: "Candidatures multiples à personnaliser sans dérive ni invention.",
     problem: "Générer des CV adaptés à chaque offre tout en garantissant qu'aucun fait n'est inventé.",
     solution: "Un assistant local-first qui compose les documents à partir d'un référentiel de faits validés et conserve l'historique.",
@@ -119,26 +148,147 @@ const PROJECTS = [
   }
 ];
 
-const EXPERTISE = [
+const EXPERTISE_FR = [
   { title: "Applications métier & APIs", desc: "Logique métier, services et API REST robustes.",           skills: ["Java", "Spring Boot", "Laravel", "Symfony", "API REST"] },
   { title: "Frontend & UX",              desc: "Interfaces de gestion claires et parcours fluides.",         skills: ["Angular", "TypeScript", "Interfaces de gestion"] },
   { title: "Données & intégration",      desc: "Modélisation, requêtage et intégration des données.",       skills: ["SQL", "PostgreSQL", "Migrations", "Optimisation"] },
   { title: "Livraison & qualité",        desc: "Conteneurisation, CI/CD et code documenté et testé.",       skills: ["Docker", "Git", "CI/CD", "Documentation", "Tests"] }
 ];
 
-const EXPERIENCE = [
+const EXPERIENCE_FR = [
   { co: "URSSAF Auvergne", role: "Développeur Full Stack",  meta: "Applications métier",   points: ["Laravel / Angular", "API REST", "Modernisation d'application"] },
   { co: "Syxperiane",      role: "Consultant Développeur",  meta: "Conseil & intégration", points: ["Java / SQL", "Intégration ERP", "Analyse fonctionnelle"] },
   { co: "Almerys",         role: "Développeur Angular",     meta: "Santé / assurance",     points: ["Tests Jasmine", "CI/CD", "Refonte UI"] },
   { co: "O2Switch",        role: "Support technique",       meta: "Hébergement / infra",   points: ["Infrastructure", "Bases de données", "Diagnostic d'incidents"] }
 ];
 
-const METHOD = [
+const METHOD_FR = [
   { idx: "01", title: "Comprendre l'existant",            text: "Lire les flux, repérer les irritants et distinguer le besoin métier de l'habitude technique." },
   { idx: "02", title: "Analyser les besoins métier",      text: "Cadrer les priorités avec les parties prenantes et tracer les décisions structurantes." },
   { idx: "03", title: "Construire des solutions maintenables", text: "Développer par incréments, tester les parcours clés et documenter ce qui doit durer." },
   { idx: "04", title: "Livrer et améliorer en continu",   text: "Préparer la mise en ligne, écouter les retours et rendre l'application plus simple à maintenir." }
 ];
+
+/* ---- Données EN ----------------------------------------------------------- */
+const CVS_EN = [
+  { label: "Classic CV", file: "renaud-meynadier-cv-classique.pdf", url: "/assets/cv/renaud-meynadier-cv-classique.pdf" },
+  { label: "Canva CV",   file: "renaud-meynadier-cv-canva.pdf",     url: "/assets/cv/renaud-meynadier-cv-canva.pdf"     }
+];
+
+const PROJECTS_EN = [
+  {
+    name: "Security-Base",
+    tagline: "Personal project · Architecture inspired by professional environments",
+    status: { label: "Portfolio / Anonymized", cls: "portfolio" },
+    img: "/assets/images/projects/security-base.png",
+    context: "Incident management in a sensitive business environment, inspired by a professional context.",
+    problem: "Incident tracking was fragmented, access rights unclear, and traceability insufficient to meet audit requirements.",
+    solution: "A centralised business application structured around role-based access control (RBAC), tracking dashboards, and document exports.",
+    features: ["RBAC and granular permission management", "Incident tracking dashboards", "PDF / Excel exports", "Complete action traceability"],
+    architecture: "Decoupled Laravel API and Angular SPA, PostgreSQL database, Docker containerised environment.",
+    value: "Real-time visibility on incidents, stronger compliance, and fully auditable actions.",
+    stack: ["Laravel", "Angular", "PostgreSQL", "Docker"],
+    repo: "https://github.com/Ninewashburn/Security-Base"
+  },
+  {
+    name: "La Nîmes'Alerie",
+    tagline: "Personal project · End-to-end e-commerce redesign",
+    status: { label: "Completed", cls: "done" },
+    img: "/assets/images/projects/nimes-alerie.png",
+    context: "A legacy e-commerce monolith that had become difficult to evolve.",
+    problem: "Costly-to-maintain legacy code, tightly coupled front and back ends, risky feature additions.",
+    solution: "Redesign towards a decoupled architecture: Symfony / API Platform on one side, an Angular application on the other.",
+    features: ["Dynamic shop and product catalogue", "Cart and customer account management", "Administration back-office", "Clear front / back separation"],
+    architecture: "API Platform (Symfony 7.2) exposing a REST API, Angular 19 frontend, Docker containerisation.",
+    value: "A maintainable, scalable codebase ready to accommodate new features without technical debt.",
+    stack: ["Angular 19", "Symfony 7.2", "API Platform", "Docker"],
+    repo: "https://github.com/Ninewashburn/Nimes-Alerie"
+  },
+  {
+    name: "Creasoka",
+    tagline: "Client project · Delivered in production",
+    status: { label: "In production", cls: "prod" },
+    img: "/assets/images/projects/creasoka.png", thumbPos: "center",
+    context: "An independent craftsman with no e-commerce presence, looking to sell online.",
+    problem: "Need for a fast, polished, well-indexed online shop, ready for production.",
+    solution: "A complete e-commerce website designed, developed, and deployed in production for the client.",
+    features: ["Smooth product catalogue", "Clear user journey", "SEO optimisation", "Continuous deployment"],
+    architecture: "Next.js and TypeScript, Tailwind CSS layout, Vercel deployment.",
+    value: "A live production site: online visibility and an open sales channel.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    site: "https://creasoka.fr/", repo: "https://github.com/Ninewashburn/Creasoka"
+  },
+  {
+    name: "Bagni-Plage",
+    tagline: "Personal project · Booking application",
+    status: { label: "Completed", cls: "done" },
+    img: "/assets/images/projects/bagni-plage.png",
+    context: "Managing beach spot reservations and their add-on options.",
+    problem: "Availability had to be tracked precisely and in real time, with additional options and distinct user roles.",
+    solution: "A booking application managing availability, options, and payment, with separate user and admin interfaces.",
+    features: ["Real-time booking and availability", "Add-on options", "User / administrator roles", "Sandbox payment"],
+    architecture: "Spring Boot (Java) API exposing a REST API, Angular frontend, PostgreSQL database.",
+    value: "Reliable bookings and centralised availability management.",
+    stack: ["Java", "Spring Boot", "Angular", "PostgreSQL"],
+    repo: "https://github.com/Ninewashburn/Bagni-Plage"
+  },
+  {
+    name: "Dora Dashboard",
+    tagline: "Personal project · Inspired by real DevOps practices",
+    status: { label: "Technical project", cls: "tech" },
+    img: "/assets/images/projects/dora-dashboard.png",
+    context: "Monitoring software delivery performance via DORA metrics.",
+    problem: "Delivery metrics were scattered with no consolidated view for driving improvement.",
+    solution: "A dedicated dashboard consolidating the four DORA metrics with time-based comparisons.",
+    features: ["Deployment frequency", "Change failure rate", "Mean time to recovery", "Comparison charts · light / dark mode"],
+    architecture: "Angular frontend and FastAPI (Python) API, Docker containerisation.",
+    value: "Concrete support for driving and continuously improving team delivery performance.",
+    stack: ["Angular", "FastAPI", "Python", "Docker"],
+    repo: "https://github.com/Ninewashburn/Dora-Dashboard"
+  },
+  {
+    name: "CV Forge",
+    tagline: "Personal project · Local-first prototype",
+    status: { label: "Idea / Prototype", cls: "concept" },
+    img: "/assets/images/projects/cv-forge.jpg",
+    context: "Multiple job applications to tailor without drift or invented details.",
+    problem: "Generating CVs adapted to each job offer while guaranteeing no facts are invented.",
+    solution: "A local-first assistant that composes documents from a validated fact repository and keeps a full history.",
+    features: ["Job offer / profile matching", "Generation strictly controlled by facts", "Exact application history"],
+    architecture: "Local-first application, Angular interface, Python processing, SQLite storage.",
+    value: "Time savings, consistent applications, and full control over the content.",
+    stack: ["Local-first", "Angular", "Python", "SQLite"],
+    repo: "https://github.com/Ninewashburn/Cv-Forge"
+  }
+];
+
+const EXPERTISE_EN = [
+  { title: "Business apps & APIs",  desc: "Business logic, services and robust REST APIs.",                  skills: ["Java", "Spring Boot", "Laravel", "Symfony", "API REST"] },
+  { title: "Frontend & UX",         desc: "Clear management interfaces and smooth user journeys.",            skills: ["Angular", "TypeScript", "Interfaces de gestion"] },
+  { title: "Data & integration",    desc: "Data modelling, querying and integration.",                        skills: ["SQL", "PostgreSQL", "Migrations", "Optimisation"] },
+  { title: "Delivery & quality",    desc: "Containerisation, CI/CD, and documented, tested code.",            skills: ["Docker", "Git", "CI/CD", "Documentation", "Tests"] }
+];
+
+const EXPERIENCE_EN = [
+  { co: "URSSAF Auvergne", role: "Full Stack Developer",    meta: "Business applications",   points: ["Laravel / Angular", "REST API", "Application modernisation"] },
+  { co: "Syxperiane",      role: "Developer Consultant",    meta: "Consulting & integration", points: ["Java / SQL", "ERP integration", "Functional analysis"] },
+  { co: "Almerys",         role: "Angular Developer",       meta: "Health / insurance",       points: ["Jasmine tests", "CI/CD", "UI redesign"] },
+  { co: "O2Switch",        role: "Technical support",       meta: "Hosting / infrastructure", points: ["Infrastructure", "Databases", "Incident diagnostics"] }
+];
+
+const METHOD_EN = [
+  { idx: "01", title: "Understand the existing system",    text: "Read the flows, identify pain points, and distinguish business needs from technical habits." },
+  { idx: "02", title: "Analyse business requirements",     text: "Frame priorities with stakeholders and document key architectural decisions." },
+  { idx: "03", title: "Build maintainable solutions",      text: "Develop incrementally, test key flows, and document what needs to last." },
+  { idx: "04", title: "Deliver and improve continuously",  text: "Prepare the release, listen to feedback, and make the application easier to maintain." }
+];
+
+/* ---- Sélecteurs de locale ------------------------------------------------- */
+const CVS      = LANG === "en" ? CVS_EN      : CVS_FR;
+const PROJECTS  = LANG === "en" ? PROJECTS_EN  : PROJECTS_FR;
+const EXPERTISE = LANG === "en" ? EXPERTISE_EN : EXPERTISE_FR;
+const EXPERIENCE = LANG === "en" ? EXPERIENCE_EN : EXPERIENCE_FR;
+const METHOD    = LANG === "en" ? METHOD_EN    : METHOD_FR;
 
 /* ---- Utilitaires ---------------------------------------------------------- */
 const HTML_ESCAPE = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
@@ -147,13 +297,13 @@ const techList = (arr) => arr.map((t) => `<span class="tech">${esc(t)}</span>`).
 
 /* ---- Filtres projets ------------------------------------------------------ */
 const TECH_FILTERS = [
-  { label: "Tous",          key: null },
-  { label: "Angular",       key: "angular" },
-  { label: "Java / Spring", key: "java" },
-  { label: "Laravel",       key: "laravel" },
-  { label: "Symfony",       key: "symfony" },
-  { label: "Python",        key: "python" },
-  { label: "Docker",        key: "docker" },
+  { label: t(UI.filterAll), key: null },
+  { label: "Angular",        key: "angular" },
+  { label: "Java / Spring",  key: "java" },
+  { label: "Laravel",        key: "laravel" },
+  { label: "Symfony",        key: "symfony" },
+  { label: "Python",         key: "python" },
+  { label: "Docker",         key: "docker" },
 ];
 
 function matchesFilter(stack, key) {
@@ -167,11 +317,10 @@ function matchesFilter(stack, key) {
 function renderProjects() {
   const grid = document.getElementById("projects-grid");
 
-  // Barre de filtre insérée avant la grille
   const filterBar = document.createElement("div");
   filterBar.className = "filter-bar";
   filterBar.setAttribute("role", "group");
-  filterBar.setAttribute("aria-label", "Filtrer les projets par technologie");
+  filterBar.setAttribute("aria-label", LANG === "en" ? "Filter projects by technology" : "Filtrer les projets par technologie");
 
   const applyFilter = (key) => {
     let visible = 0;
@@ -185,7 +334,7 @@ function renderProjects() {
       if (!empty) {
         empty = document.createElement("p");
         empty.className = "filter-empty";
-        empty.textContent = "Aucun projet ne correspond à ce filtre.";
+        empty.textContent = t(UI.filterEmpty);
         grid.appendChild(empty);
       }
     } else {
@@ -221,12 +370,12 @@ function renderProjects() {
           <p class="pcard-tagline">${esc(p.tagline)}</p>
           <h3>${esc(p.name)}</h3>
           <div class="pcard-fields">
-            <div class="pfield"><span class="k">Contexte</span><span class="v">${esc(p.context)}</span></div>
-            <div class="pfield"><span class="k">Solution</span><span class="v">${esc(p.solution)}</span></div>
-            <div class="pfield"><span class="k">Stack</span><span class="v"><span class="pstack">${techList(p.stack)}</span></span></div>
+            <div class="pfield"><span class="k">${t(UI.fieldContext)}</span><span class="v">${esc(p.context)}</span></div>
+            <div class="pfield"><span class="k">${t(UI.fieldSolution)}</span><span class="v">${esc(p.solution)}</span></div>
+            <div class="pfield"><span class="k">${t(UI.fieldStack)}</span><span class="v"><span class="pstack">${techList(p.stack)}</span></span></div>
           </div>
           <div class="pcard-foot">
-            <button class="case-link" data-project="${i}">Voir le détail ${icon("arrow", 15)}</button>
+            <button class="case-link" data-project="${i}">${t(UI.caseLink)} ${icon("arrow", 15)}</button>
             <div class="pcard-links">${links}</div>
           </div>
         </div>
@@ -293,24 +442,24 @@ function openModal(p, trigger) {
   lastFocused = trigger ?? document.activeElement;
   const pos = p.thumbPos ?? "center top";
   const rows = [
-    ["Contexte",               `<p>${esc(p.context)}</p>`],
-    ["Problème",               `<p>${esc(p.problem)}</p>`],
-    ["Solution",               `<p>${esc(p.solution)}</p>`],
-    ["Capacités métier",       `<ul>${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>`],
-    ["Architecture technique", `<p>${esc(p.architecture)}</p>`],
-    ["Valeur métier",          `<p>${esc(p.value)}</p>`],
-    ["Stack technique",        `<div class="pstack">${techList(p.stack)}</div>`]
+    [t(UI.rowContext),   `<p>${esc(p.context)}</p>`],
+    [t(UI.rowProblem),   `<p>${esc(p.problem)}</p>`],
+    [t(UI.rowSolution),  `<p>${esc(p.solution)}</p>`],
+    [t(UI.rowFeatures),  `<ul>${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>`],
+    [t(UI.rowArch),      `<p>${esc(p.architecture)}</p>`],
+    [t(UI.rowValue),     `<p>${esc(p.value)}</p>`],
+    [t(UI.rowStack),     `<div class="pstack">${techList(p.stack)}</div>`]
   ];
 
   let foot = "";
-  if (p.site) foot += `<a class="btn btn-secondary btn-sm" href="${p.site}" target="_blank" rel="noopener">${icon("external", 16)} Visiter le site</a>`;
-  if (p.repo) foot += `<a class="btn btn-secondary btn-sm" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 16)} Voir le dépôt</a>`;
-  foot += `<button class="btn btn-outline btn-sm" data-close>Fermer</button>`;
+  if (p.site) foot += `<a class="btn btn-secondary btn-sm" href="${p.site}" target="_blank" rel="noopener">${icon("external", 16)} ${t(UI.visitSite)}</a>`;
+  if (p.repo) foot += `<a class="btn btn-secondary btn-sm" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 16)} ${t(UI.viewRepo)}</a>`;
+  foot += `<button class="btn btn-outline btn-sm" data-close>${t(UI.close)}</button>`;
 
   overlay.innerHTML = `
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-hero" style="background-image:url('${p.img}');background-position:${pos}">
-        <button class="modal-close" data-close aria-label="Fermer">${icon("close", 18)}</button>
+        <button class="modal-close" data-close aria-label="${t(UI.close)}">${icon("close", 18)}</button>
       </div>
       <div class="modal-body">
         <span class="status ${p.status.cls}">${esc(p.status.label)}</span>
@@ -348,11 +497,11 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay.
 const themeBtn       = document.getElementById("theme-toggle");
 const metaThemeColor = document.getElementById("meta-theme-color");
 
-function applyTheme(t) {
-  document.documentElement.classList.toggle("light-theme", t === "light");
-  themeBtn.innerHTML = icon(t === "light" ? "moon" : "sun", 19);
-  if (metaThemeColor) metaThemeColor.content = t === "light" ? "#f6f8fc" : "#090e1a";
-  try { localStorage.setItem("rm-theme", t); } catch { }
+function applyTheme(theme) {
+  document.documentElement.classList.toggle("light-theme", theme === "light");
+  themeBtn.innerHTML = icon(theme === "light" ? "moon" : "sun", 19);
+  if (metaThemeColor) metaThemeColor.content = theme === "light" ? "#f6f8fc" : "#090e1a";
+  try { localStorage.setItem("rm-theme", theme); } catch { }
 }
 
 let savedTheme;
@@ -361,7 +510,7 @@ savedTheme ??= matchMedia("(prefers-color-scheme: light)").matches ? "light" : "
 applyTheme(savedTheme);
 
 themeBtn.addEventListener("click", () => {
-  applyTheme(document.body.classList.contains("light-theme") ? "dark" : "light");
+  applyTheme(document.documentElement.classList.contains("light-theme") ? "dark" : "light");
 });
 
 /* ---- Boutons à icône (data-icon) ------------------------------------------ */
@@ -375,15 +524,15 @@ document.querySelectorAll("[data-icon]").forEach((el) => {
   const toggleBtn = document.getElementById("cv-toggle");
   const action    = document.getElementById("cv-action");
 
-  view.innerHTML      = `${icon("file", 17)} Voir le CV`;
+  view.innerHTML      = `${icon("file", 17)} ${t(UI.cvView)}`;
   toggleBtn.innerHTML = icon("chevron", 16);
 
   document.getElementById("cv-menu").innerHTML = CVS.map((cv) => `
     <div class="cv-menu-row">
       <span class="cv-menu-label">${esc(cv.label)}</span>
       <div class="cv-menu-actions">
-        <a href="${cv.url}" target="_blank" rel="noopener" title="Visualiser : ${esc(cv.label)}">${icon("external", 15)} Visualiser</a>
-        <a href="${cv.url}" download="${cv.file}" title="Télécharger : ${esc(cv.label)}">${icon("download", 15)} Télécharger</a>
+        <a href="${cv.url}" target="_blank" rel="noopener" title="${t(UI.cvVisualize)} : ${esc(cv.label)}">${icon("external", 15)} ${t(UI.cvVisualize)}</a>
+        <a href="${cv.url}" download="${cv.file}" title="${t(UI.cvDownload)} : ${esc(cv.label)}">${icon("download", 15)} ${t(UI.cvDownload)}</a>
       </div>
     </div>`).join("");
 
@@ -400,14 +549,16 @@ document.querySelectorAll("[data-icon]").forEach((el) => {
 /* ---- Copier l'e-mail ------------------------------------------------------ */
 {
   const btn      = document.getElementById("copy-email");
+  const copyLabel = t(UI.copyEmail);
+  const copiedLabel = t(UI.emailCopied);
   const setLabel = (name, text) => { btn.innerHTML = `${icon(name, 16)} ${text}`; };
-  setLabel("copy", "Copier l'e-mail");
+  setLabel("copy", copyLabel);
 
   btn.addEventListener("click", () => {
     const done = () => {
       btn.classList.add("copied");
-      setLabel("check", "E-mail copié");
-      setTimeout(() => { btn.classList.remove("copied"); setLabel("copy", "Copier l'e-mail"); }, 1800);
+      setLabel("check", copiedLabel);
+      setTimeout(() => { btn.classList.remove("copied"); setLabel("copy", copyLabel); }, 1800);
     };
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(EMAIL).then(done).catch(() => { window.location.href = `mailto:${EMAIL}`; });
@@ -428,7 +579,6 @@ const spyIds   = ["projets", "expertise", "experience", "methode", "contact"];
 const spyLinks = {};
 document.querySelectorAll(".nav a[data-spy]").forEach((a) => { spyLinks[a.dataset.spy] = a; });
 
-// Positions pré-calculées pour éviter getBoundingClientRect() dans le scroll handler
 const sectionTops = {};
 function cacheSectionTops() {
   spyIds.forEach((id) => {
@@ -443,7 +593,6 @@ function onScroll() {
   toTop.classList.toggle("show", y > 640);
   toTop.tabIndex = y > 640 ? 0 : -1;
 
-  // Scroll-spy : arithmétique pure, aucun accès au DOM
   const threshold = y + window.innerHeight * 0.30;
   let current = spyIds[0];
   for (const id of spyIds) {
@@ -488,7 +637,7 @@ function setupReveal() {
       navEl.classList.remove("open");
       toggle.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Ouvrir le menu");
+      toggle.setAttribute("aria-label", LANG === "en" ? "Open menu" : "Ouvrir le menu");
     };
 
     toggle.addEventListener("click", (e) => {
@@ -496,7 +645,9 @@ function setupReveal() {
       const open = navEl.classList.toggle("open");
       toggle.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+      toggle.setAttribute("aria-label", open
+        ? (LANG === "en" ? "Close menu" : "Fermer le menu")
+        : (LANG === "en" ? "Open menu"  : "Ouvrir le menu"));
     });
 
     navEl.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeNav));

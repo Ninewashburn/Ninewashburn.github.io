@@ -161,6 +161,7 @@ section { position: relative; }
 }
 .icon-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
 .icon-btn svg { width: 19px; height: 19px; }
+.lang-switch { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; padding: 7px 12px; }
 
 /* ---- Nav toggle (hamburger) -------------------------------------------- */
 .nav-toggle {

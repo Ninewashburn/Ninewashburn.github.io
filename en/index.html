@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renaud Meynadier | Full Stack Developer Java &amp; Angular</title>
+  <meta name="description"
+    content="Full Stack Java & Angular Developer. Designing business applications, REST APIs and robust web solutions for companies and organisations.">
+  <meta name="author" content="Renaud Meynadier">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.renaudmeynadier.com/en/">
+  <meta property="og:title" content="Renaud Meynadier | Full Stack Developer Java & Angular">
+  <meta property="og:description"
+    content="Designing business applications, REST APIs and robust web solutions for companies and organisations.">
+  <meta property="og:image" content="https://www.renaudmeynadier.com/assets/images/og-preview.png">
+
+  <link rel="canonical" href="https://www.renaudmeynadier.com/en/">
+  <link rel="alternate" hreflang="fr" href="https://www.renaudmeynadier.com/">
+  <link rel="alternate" hreflang="en" href="https://www.renaudmeynadier.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://www.renaudmeynadier.com/">
+
+  <meta name="theme-color" id="meta-theme-color" content="#090e1a">
+  <script>
+    (function () {
+      var s, light;
+      try { s = localStorage.getItem("rm-theme"); } catch (e) {}
+      light = s === "light" || (!s && matchMedia("(prefers-color-scheme: light)").matches);
+      if (light) document.documentElement.classList.add("light-theme");
+      var m = document.getElementById("meta-theme-color");
+      if (m) m.content = light ? "#f6f8fc" : "#090e1a";
+    })();
+  </script>
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.renaudmeynadier.com/#person",
+        "name": "Renaud Meynadier",
+        "jobTitle": "Full Stack Developer",
+        "email": "meynadier.renaud@gmail.com",
+        "url": "https://www.renaudmeynadier.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/renaud-m-063",
+          "https://github.com/Ninewashburn"
+        ],
+        "knowsAbout": ["Java", "Spring Boot", "Angular", "Laravel", "Symfony", "REST API", "PostgreSQL", "Docker"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Clermont-Ferrand",
+          "addressCountry": "FR"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.renaudmeynadier.com/#website",
+        "url": "https://www.renaudmeynadier.com/",
+        "name": "Renaud Meynadier | Full Stack Developer Java & Angular",
+        "author": { "@id": "https://www.renaudmeynadier.com/#person" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Renaud Meynadier, home">
+        <span class="br">&lt;/&gt;</span>
+        <span>Renaud Meynadier</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#projets" data-spy="projets">Projects</a>
+        <a href="#expertise" data-spy="expertise">Expertise</a>
+        <a href="#experience" data-spy="experience">Experience</a>
+        <a href="#methode" data-spy="methode">Method</a>
+        <a href="#contact" data-spy="contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"></button>
+        <a class="lang-switch btn btn-outline btn-sm" href="/" hreflang="fr" lang="fr">FR</a>
+        <a class="btn btn-outline btn-sm" href="#contact">Contact me</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-main reveal">
+            <span class="eyebrow">3+ years experience · Available</span>
+            <h1>Full Stack <span class="accent">Developer</span></h1>
+            <div class="hero-stack">
+              <span>Angular</span><span class="sep">·</span>
+              <span>Laravel</span><span class="sep">·</span>
+              <span>Symfony</span><span class="sep">·</span>
+              <span>Java / Spring</span><span class="sep">·</span>
+              <span>REST API</span>
+            </div>
+            <p class="hero-sub">Designing business applications, REST APIs and robust web solutions for companies and organisations.</p>
+            <div class="hero-actions">
+              <div class="cv-action" id="cv-action">
+                <a class="btn btn-primary" href="/assets/cv/renaud-meynadier-cv-classique.pdf" target="_blank"
+                  rel="noopener" id="cv-view"></a>
+                <button class="btn btn-primary cv-toggle" id="cv-toggle" aria-label="CV options"
+                  aria-expanded="false"></button>
+                <div class="cv-menu" role="menu" id="cv-menu"></div>
+              </div>
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/renaud-m-063" target="_blank"
+                rel="noopener" data-icon="linkedin">LinkedIn</a>
+              <a class="btn btn-secondary" href="https://github.com/Ninewashburn" target="_blank" rel="noopener"
+                data-icon="github">GitHub</a>
+              <a class="btn btn-secondary" href="#contact" data-icon="mail">Contact me</a>
+            </div>
+          </div>
+          <aside class="hero-focus reveal" aria-label="Areas of focus">
+            <span class="hero-focus-label">Areas of focus</span>
+            <ul>
+              <li><span>01</span>Business applications</li>
+              <li><span>02</span>REST API &amp; integrations</li>
+              <li><span>03</span>Legacy system redesign</li>
+              <li><span>04</span>Management interfaces</li>
+            </ul>
+            <p>Solutions designed to remain readable, maintainable, and useful for the business.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section" id="projets">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Work</span>
+          <h2>Projects &amp; case studies</h2>
+          <p>A selection of projects presented as case studies: context, problem addressed, technical solution, and business value.</p>
+        </div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERTISE ===================== -->
+    <section class="section section--band" id="expertise">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Expertise</span>
+          <h2>Areas of expertise</h2>
+          <p>Four complementary domains, from business logic to production deployment.</p>
+        </div>
+        <div class="expertise-grid" id="expertise-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow center">Background</span>
+          <h2>Experience</h2>
+          <p>A variety of business contexts: public sector, consulting, healthcare, infrastructure.</p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- ===================== METHOD ===================== -->
+    <section class="section section--band" id="methode">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Method</span>
+          <h2>How I work</h2>
+          <p>A straightforward approach to taking over an existing system, clarifying requirements, and delivering a maintainable foundation.</p>
+        </div>
+        <div class="method-grid" id="method-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT / CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <span class="eyebrow">About</span>
+            <h2 class="about-title">Software rigour, business understanding</h2>
+            <p>Having transitioned into software development, I built a full stack profile focused on business applications, system redesigns, and REST API design.</p>
+            <p>I enjoy taking over complex existing systems, analysing their limitations, documenting them, and modernising them to make them robust, readable, and maintainable.</p>
+            <p>I integrate AI into my workflows to accelerate prototyping and documentation, while maintaining full control over my choices and code quality.</p>
+          </div>
+          <div class="avail reveal">
+            <div class="avail-title">Actively looking</div>
+            <p>Opportunities in full stack development on complex business applications, redesigns, or evolving maintenance. Priority stacks: Java/Angular, Laravel/Angular, or Symfony/Angular.</p>
+            <div class="avail-meta">
+              <div class="avail-item"><span class="k">Locations</span><span class="v">Clermont-Ferrand · Rouen · Paris
+                  (hybrid) · Remote</span></div>
+              <div class="avail-item"><span class="k">Availability</span><span class="v">Immediate</span></div>
+            </div>
+            <div class="avail-actions">
+              <a class="btn btn-primary btn-block" href="mailto:meynadier.renaud@gmail.com" data-icon="mail">Contact me by email</a>
+              <button class="btn btn-outline btn-block" id="copy-email" data-icon="copy">Copy email</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <div class="footer-left">
+          <p class="footer-copy">© 2026 Renaud Meynadier. All rights reserved.</p>
+          <p class="footer-loc">Clermont-Ferrand · Rouen · Paris (hybrid) · Remote</p>
+        </div>
+        <div class="footer-right">
+          <p class="footer-meta">Static portfolio HTML/CSS/JS, back to basics.</p>
+          <nav class="footer-nav">
+            <a href="https://www.linkedin.com/in/renaud-m-063" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/Ninewashburn" target="_blank" rel="noopener">GitHub</a>
+            <a href="/assets/cv/renaud-meynadier-cv-classique.pdf" target="_blank" rel="noopener">Classic CV</a>
+            <a href="/assets/cv/renaud-meynadier-cv-canva.pdf" target="_blank" rel="noopener">Canva CV</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" tabindex="-1"></button>
+
+  <!-- Case study modal (filled by JS) -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true"></div>
+
+  <script type="module" src="/script.js"></script>
+</body>
+
+</html>
