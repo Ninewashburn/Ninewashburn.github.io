@@ -145,16 +145,76 @@ const HTML_ESCAPE = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'"
 const esc      = (s)   => String(s).replace(/[&<>"']/g, (c) => HTML_ESCAPE[c]);
 const techList = (arr) => arr.map((t) => `<span class="tech">${esc(t)}</span>`).join("");
 
+/* ---- Filtres projets ------------------------------------------------------ */
+const TECH_FILTERS = [
+  { label: "Tous",          key: null },
+  { label: "Angular",       key: "angular" },
+  { label: "Java / Spring", key: "java" },
+  { label: "Laravel",       key: "laravel" },
+  { label: "Symfony",       key: "symfony" },
+  { label: "Python",        key: "python" },
+  { label: "Docker",        key: "docker" },
+];
+
+function matchesFilter(stack, key) {
+  if (!key) return true;
+  const s = stack.map((t) => t.toLowerCase()).join(" ");
+  if (key === "java") return s.includes("java") || s.includes("spring");
+  return s.includes(key);
+}
+
 /* ---- Rendu : cartes projets ----------------------------------------------- */
 function renderProjects() {
   const grid = document.getElementById("projects-grid");
+
+  // Barre de filtre insérée avant la grille
+  const filterBar = document.createElement("div");
+  filterBar.className = "filter-bar";
+  filterBar.setAttribute("role", "group");
+  filterBar.setAttribute("aria-label", "Filtrer les projets par technologie");
+
+  const applyFilter = (key) => {
+    let visible = 0;
+    grid.querySelectorAll(".pcard").forEach((card) => {
+      const show = matchesFilter(JSON.parse(card.dataset.stack), key);
+      card.classList.toggle("filter-hidden", !show);
+      if (show) visible++;
+    });
+    let empty = grid.querySelector(".filter-empty");
+    if (visible === 0) {
+      if (!empty) {
+        empty = document.createElement("p");
+        empty.className = "filter-empty";
+        empty.textContent = "Aucun projet ne correspond à ce filtre.";
+        grid.appendChild(empty);
+      }
+    } else {
+      empty?.remove();
+    }
+    filterBar.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.key === String(key)));
+    });
+  };
+
+  TECH_FILTERS.forEach(({ label, key }) => {
+    const btn = document.createElement("button");
+    btn.className = "filter-btn";
+    btn.textContent = label;
+    btn.dataset.key = String(key);
+    btn.setAttribute("aria-pressed", String(key === null));
+    btn.addEventListener("click", () => applyFilter(key));
+    filterBar.appendChild(btn);
+  });
+
+  grid.parentElement.insertBefore(filterBar, grid);
+
   grid.innerHTML = PROJECTS.map((p, i) => {
     const pos = p.thumbPos ?? "center top";
     let links = "";
     if (p.site) links += `<a class="repo-link" href="${p.site}" target="_blank" rel="noopener">${icon("external", 15)} Site</a>`;
     if (p.repo) links += `<a class="repo-link" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 15)} Dépôt</a>`;
     return `
-      <article class="pcard reveal">
+      <article class="pcard reveal" data-stack='${JSON.stringify(p.stack)}'>
         <div class="pcard-thumb" style="background-image:url('${p.img}');background-position:${pos}"></div>
         <div class="pcard-body">
           <div class="pcard-meta"><span class="status ${p.status.cls}">${esc(p.status.label)}</span></div>
@@ -284,17 +344,20 @@ function closeModal() {
 overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay.classList.contains("open")) closeModal(); });
 
-/* ---- Thème (sombre par défaut, persistant) -------------------------------- */
-const themeBtn = document.getElementById("theme-toggle");
+/* ---- Thème (persistant, OS-aware, sans flash) ------------------------------ */
+const themeBtn       = document.getElementById("theme-toggle");
+const metaThemeColor = document.getElementById("meta-theme-color");
 
 function applyTheme(t) {
-  document.body.classList.toggle("light-theme", t === "light");
+  document.documentElement.classList.toggle("light-theme", t === "light");
   themeBtn.innerHTML = icon(t === "light" ? "moon" : "sun", 19);
+  if (metaThemeColor) metaThemeColor.content = t === "light" ? "#f6f8fc" : "#090e1a";
   try { localStorage.setItem("rm-theme", t); } catch { }
 }
 
-let savedTheme = "dark";
-try { savedTheme = localStorage.getItem("rm-theme") ?? "dark"; } catch { }
+let savedTheme;
+try { savedTheme = localStorage.getItem("rm-theme"); } catch { }
+savedTheme ??= matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
 applyTheme(savedTheme);
 
 themeBtn.addEventListener("click", () => {

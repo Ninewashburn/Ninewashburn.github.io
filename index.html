@@ -17,6 +17,17 @@
     content="Conception d'applications métier, APIs REST et solutions web robustes pour entreprises et organisations.">
   <meta property="og:image" content="https://www.renaudmeynadier.com/assets/images/og-preview.png">
 
+  <meta name="theme-color" id="meta-theme-color" content="#090e1a">
+  <script>
+    (function () {
+      var s, light;
+      try { s = localStorage.getItem("rm-theme"); } catch (e) {}
+      light = s === "light" || (!s && matchMedia("(prefers-color-scheme: light)").matches);
+      if (light) document.documentElement.classList.add("light-theme");
+      var m = document.getElementById("meta-theme-color");
+      if (m) m.content = light ? "#f6f8fc" : "#090e1a";
+    })();
+  </script>
   <link rel="canonical" href="https://www.renaudmeynadier.com/">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="apple-touch-icon" href="assets/images/favicon.png">
@@ -26,6 +37,39 @@
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.renaudmeynadier.com/#person",
+        "name": "Renaud Meynadier",
+        "jobTitle": "Développeur Full Stack",
+        "email": "meynadier.renaud@gmail.com",
+        "url": "https://www.renaudmeynadier.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/renaud-m-063",
+          "https://github.com/Ninewashburn"
+        ],
+        "knowsAbout": ["Java", "Spring Boot", "Angular", "Laravel", "Symfony", "API REST", "PostgreSQL", "Docker"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Clermont-Ferrand",
+          "addressCountry": "FR"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.renaudmeynadier.com/#website",
+        "url": "https://www.renaudmeynadier.com/",
+        "name": "Renaud Meynadier | Développeur Full Stack Java & Angular",
+        "author": { "@id": "https://www.renaudmeynadier.com/#person" },
+        "inLanguage": "fr-FR"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -181,6 +225,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
   </main>
