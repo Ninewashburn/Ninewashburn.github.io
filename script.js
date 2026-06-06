@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Renaud Meynadier — Portfolio statique
-   script.js — données + rendu + interactions, JavaScript pur (zéro dépendance)
+   Renaud Meynadier - Portfolio statique
+   script.js - données + rendu + interactions, JavaScript pur (zéro dépendance)
    ========================================================================== */
 
 const EMAIL = "meynadier.renaud@gmail.com";

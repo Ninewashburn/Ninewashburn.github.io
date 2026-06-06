@@ -2,83 +2,52 @@
 
 Portfolio statique de développeur full stack, publié avec GitHub Pages :
 
-<https://renaudmeynadier.com/>
+<https://www.renaudmeynadier.com/>
 
-Le site présente mon profil, mes compétences techniques, une sélection de projets et des liens vers mon CV, LinkedIn, GitHub et mon adresse de contact.
+Version anglaise : <https://www.renaudmeynadier.com/en/>
 
 ## Stack
 
-- HTML statique
-- CSS vanilla
-- JavaScript natif pour le basculement clair/sombre
+- HTML / CSS / JavaScript ES6 natif - zéro framework, zéro dépendance, zéro compilation
 - GitHub Pages pour l'hébergement
-
-Aucun framework, aucune compilation et aucune dépendance locale ne sont nécessaires.
 
 ## Structure
 
 ```text
 .
-├── index.html
-├── style.css
-├── README.md
-├── assets/
-│   ├── cv/
-│   │   ├── renaud-meynadier-cv-classique.pdf
-│   │   └── renaud-meynadier-cv-canva.pdf
-│   └── images/
-│       ├── favicon.png
-│       ├── og-preview.png
-│       └── projects/
-└── .gitignore
+├── index.html          - page principale (FR)
+├── script.js           - rendu, interactions, données bilingues
+├── style.css           - design system complet (tokens, thème clair/sombre)
+├── 404.html            - page d'erreur personnalisée
+├── sitemap.xml
+├── robots.txt
+├── CNAME
+├── en/
+│   └── index.html      - page principale (EN)
+└── assets/
+    ├── cv/
+    │   ├── renaud-meynadier-cv-classique.pdf
+    │   └── renaud-meynadier-cv-canva.pdf
+    └── images/
+        ├── favicon.png
+        ├── og-preview.png
+        └── projects/
 ```
 
 ## Fonctionnalités
 
-- Page portfolio responsive.
-- Thème sombre par défaut.
-- Bascule clair/sombre avec sauvegarde dans `localStorage`.
-- Miniatures illustrées pour les projets.
-- Balises Open Graph pour les aperçus LinkedIn et réseaux sociaux.
-- CV téléchargeables depuis la page.
-
-## Ajouter Une Page Projet
-
-GitHub Pages sert simplement les fichiers HTML présents dans le dépôt. Il n'est donc pas nécessaire de créer les pages depuis l'interface GitHub.
-
-Une page détail peut être ajoutée directement dans le projet, par exemple :
-
-```text
-projects/
-├── nimes-alerie.html
-├── security-base.html
-├── bagni-plage.html
-├── dora-dashboard.html
-└── creasoka.html
-```
-
-Depuis `index.html`, il suffit ensuite d'ajouter un lien dans la carte concernée :
-
-```html
-<a href="projects/nimes-alerie.html" class="project-link">
-    Voir détails
-</a>
-```
-
-Dans une page placée dans `projects/`, la feuille de styles principale se référence ainsi :
-
-```html
-<link rel="stylesheet" href="../style.css">
-```
-
-Les captures publiques optimisées peuvent être rangées dans un dossier dédié :
-
-```text
-assets/images/project-details/nimes-alerie/
-```
-
-Les dossiers de travail contenant des captures sources ou documents temporaires restent ignorés par Git via `.gitignore`.
+- **Bilingue FR / EN** - même `script.js`, locale détectée via l'URL (`/en/`)
+- **Thème clair / sombre** - détection `prefers-color-scheme` au premier rendu (sans flash), persistance `localStorage`
+- **Navigation mobile** - menu hamburger avec animation CSS, fermeture Échap / clic extérieur
+- **Projets** - rendu dynamique depuis les données JS, filtrage par technologie (Angular, Java/Spring, Laravel…)
+- **Études de cas** - modal accessible avec focus trap, `aria-labelledby`, restauration du focus à la fermeture
+- **Scroll spy** - lien actif dans la nav calculé sans `getBoundingClientRect` dans le handler (offsets pré-calculés)
+- **CV** - bouton split avec menu déroulant (visualiser / télécharger, deux formats)
+- **Copier l'e-mail** - presse-papier avec fallback `mailto:`
+- **SEO** - `canonical`, `hreflang` FR/EN/x-default, `sitemap.xml`, JSON-LD `Person` + `WebSite`, Open Graph
+- **Accessibilité** - lien "Passer au contenu", `aria-*`, `prefers-reduced-motion`, navigation clavier complète
 
 ## Déploiement
 
-Le site est compatible avec GitHub Pages. Après un commit et un push sur la branche configurée pour Pages, GitHub publie automatiquement les fichiers statiques.
+Commit + push sur `main` → GitHub Pages publie automatiquement.
+Le domaine personnalisé est configuré via le fichier `CNAME` et les paramètres GitHub Pages du dépôt.
