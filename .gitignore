@@ -1,32 +1,27 @@
-# Temporary visual references used to generate portfolio illustrations
-Base security documents/
-nimes_alerie_photos/
-bagni_plage/
-dora-dashboard_photos/
-
-# Office temporary files
+# System & Temp files
+.DS_Store
+Thumbs.db
+desktop.ini
 ~$*
+*~
 
-# Local planning / working notes
-portfolio_github_pages_renaud_meynadier.md
+# Editor / IDE
+.claude
+.vscode/
+.idea/
+*.swp
 
-# Local resume/profile exports used as references
-Profile.pdf
-Resume-*.json
-Plan LinkedIn*.docx
+# Python & environments (for local scripts)
+.venv/
+__pycache__/
+*.pyc
+*.pyo
 
-# Temporary CV Forge concept notes and raw mockups
-cv-forge_maquette*.png
-cv_forge_scheme.png
-cvforge_synthese_fonctionnalites_et_architecture_*.md
-
-# Raw screenshots/images dropped at the repository root
+# Ignore raw screenshots/images dropped directly at the repository root
 /*.png
 /*.jpg
 /*.jpeg
 /*.webp
-
-# CV Forge raw source files
-/cv-*
-/cv_*
-/cvforge_*
+/*.pdf
+/*.md
+!README.md

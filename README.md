@@ -2,7 +2,7 @@
 
 Portfolio statique de développeur full stack, publié avec GitHub Pages :
 
-<https://ninewashburn.github.io/>
+<https://renaudmeynadier.com/>
 
 Le site présente mon profil, mes compétences techniques, une sélection de projets et des liens vers mon CV, LinkedIn, GitHub et mon adresse de contact.
 
@@ -24,11 +24,10 @@ Aucun framework, aucune compilation et aucune dépendance locale ne sont nécess
 ├── README.md
 ├── assets/
 │   ├── cv/
-│   │   ├── Renaud_Meynadier_CV_Developpeur_Fullstack.pdf
-│   │   └── Renaud_Meynadier_CV.pdf
+│   │   ├── renaud-meynadier-cv-classique.pdf
+│   │   └── renaud-meynadier-cv-canva.pdf
 │   └── images/
-│       ├── favicon.svg
-│       ├── og-preview.jpg
+│       ├── favicon.png
 │       ├── og-preview.png
 │       └── projects/
 └── .gitignore

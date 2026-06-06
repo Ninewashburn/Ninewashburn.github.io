@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Renaud Meynadier | Développeur Full Stack Java &amp; Angular</title>
-  <meta name="description" content="Développeur Full Stack Java & Angular. Conception d'applications métier, APIs REST et solutions web robustes pour entreprises et organisations.">
+  <meta name="description"
+    content="Développeur Full Stack Java & Angular. Conception d'applications métier, APIs REST et solutions web robustes pour entreprises et organisations.">
   <meta name="author" content="Renaud Meynadier">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.renaudmeynadier.com/">
   <meta property="og:title" content="Renaud Meynadier | Développeur Full Stack Java & Angular">
-  <meta property="og:description" content="Conception d'applications métier, APIs REST et solutions web robustes pour entreprises et organisations.">
-  <meta property="og:image" content="assets/images/og-preview.png">
+  <meta property="og:description"
+    content="Conception d'applications métier, APIs REST et solutions web robustes pour entreprises et organisations.">
+  <meta property="og:image" content="https://www.renaudmeynadier.com/assets/images/og-preview.png">
 
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="canonical" href="https://www.renaudmeynadier.com/">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <a class="skip-link" href="#main-content">Passer au contenu</a>
 
   <!-- ===================== HEADER ===================== -->
   <header class="header" id="header">
@@ -36,37 +47,57 @@
         <a href="#contact" data-spy="contact">Contact</a>
       </nav>
       <div class="header-actions">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
         <button class="icon-btn" id="theme-toggle" aria-label="Changer de thème"></button>
         <a class="btn btn-outline btn-sm" href="#contact">Me contacter</a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="top">
       <div class="container">
         <div class="hero-inner">
-          <span class="eyebrow">3+ ans d'expérience · Disponible</span>
-          <h1>Développeur <span class="accent">Full&nbsp;Stack</span></h1>
-          <div class="hero-stack">
-            <span>Angular</span><span class="sep">·</span>
-            <span>Laravel</span><span class="sep">·</span>
-            <span>Symfony</span><span class="sep">·</span>
-            <span>Java / Spring</span><span class="sep">·</span>
-            <span>API REST</span>
-          </div>
-          <p class="hero-sub">Conception d'applications métier, APIs REST et solutions web robustes pour entreprises et organisations.</p>
-          <div class="hero-actions">
-            <div class="cv-action" id="cv-action">
-              <a class="btn btn-primary" href="assets/cv/CV-Renaud-Meynadier.pdf" target="_blank" rel="noopener" id="cv-view"></a>
-              <button class="btn btn-primary cv-toggle" id="cv-toggle" aria-label="Options du CV" aria-expanded="false"></button>
-              <div class="cv-menu" role="menu" id="cv-menu"></div>
+          <div class="hero-main reveal">
+            <span class="eyebrow">3+ ans d'expérience · Disponible</span>
+            <h1>Développeur <span class="accent">Full&nbsp;Stack</span></h1>
+            <div class="hero-stack">
+              <span>Angular</span><span class="sep">·</span>
+              <span>Laravel</span><span class="sep">·</span>
+              <span>Symfony</span><span class="sep">·</span>
+              <span>Java / Spring</span><span class="sep">·</span>
+              <span>API REST</span>
             </div>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/renaud-m-063" target="_blank" rel="noopener" data-icon="linkedin">LinkedIn</a>
-            <a class="btn btn-secondary" href="https://github.com/Ninewashburn" target="_blank" rel="noopener" data-icon="github">GitHub</a>
-            <a class="btn btn-outline" href="#contact" data-icon="mail">Me contacter</a>
+            <p class="hero-sub">Conception d'applications métier, APIs REST et solutions web robustes pour entreprises
+              et organisations.</p>
+            <div class="hero-actions">
+              <div class="cv-action" id="cv-action">
+                <a class="btn btn-primary" href="assets/cv/renaud-meynadier-cv-classique.pdf" target="_blank"
+                  rel="noopener" id="cv-view"></a>
+                <button class="btn btn-primary cv-toggle" id="cv-toggle" aria-label="Options du CV"
+                  aria-expanded="false"></button>
+                <div class="cv-menu" role="menu" id="cv-menu"></div>
+              </div>
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/renaud-m-063" target="_blank"
+                rel="noopener" data-icon="linkedin">LinkedIn</a>
+              <a class="btn btn-secondary" href="https://github.com/Ninewashburn" target="_blank" rel="noopener"
+                data-icon="github">GitHub</a>
+              <a class="btn btn-secondary" href="#contact" data-icon="mail">Me contacter</a>
+            </div>
           </div>
+          <aside class="hero-focus reveal" aria-label="Domaines de prédilection">
+            <span class="hero-focus-label">Domaines de prédilection</span>
+            <ul>
+              <li><span>01</span>Applications métier</li>
+              <li><span>02</span>API REST &amp; intégrations</li>
+              <li><span>03</span>Refonte d'existant</li>
+              <li><span>04</span>Interfaces de gestion</li>
+            </ul>
+            <p>Des solutions pensées pour rester lisibles, maintenables et utiles au métier.</p>
+          </aside>
         </div>
       </div>
     </section>
@@ -77,7 +108,8 @@
         <div class="section-head">
           <span class="eyebrow">Réalisations</span>
           <h2>Projets &amp; études de cas</h2>
-          <p>Une sélection de réalisations présentées comme des études de cas : contexte, problème adressé, solution technique et valeur métier.</p>
+          <p>Une sélection de réalisations présentées comme des études de cas : contexte, problème adressé, solution
+            technique et valeur métier.</p>
         </div>
         <div class="projects-grid" id="projects-grid"></div>
       </div>
@@ -126,19 +158,25 @@
           <div class="about-text reveal">
             <span class="eyebrow">À propos</span>
             <h2 class="about-title">Rigueur logicielle, compréhension métier</h2>
-            <p>Issu d'une reconversion dans le développement logiciel, j'ai construit un profil full stack orienté applications métier, refontes de systèmes et conception d'API REST.</p>
-            <p>J'aime reprendre des systèmes complexes existants, analyser leurs limites, les documenter et les moderniser pour les rendre robustes, lisibles et maintenables.</p>
-            <p>J'intègre l'IA dans mes flux de travail pour accélérer le prototypage et la documentation, tout en conservant le contrôle total sur mes choix et la qualité de mon code.</p>
+            <p>Issu d'une reconversion dans le développement logiciel, j'ai construit un profil full stack orienté
+              applications métier, refontes de systèmes et conception d'API REST.</p>
+            <p>J'aime reprendre des systèmes complexes existants, analyser leurs limites, les documenter et les
+              moderniser pour les rendre robustes, lisibles et maintenables.</p>
+            <p>J'intègre l'IA dans mes flux de travail pour accélérer le prototypage et la documentation, tout en
+              conservant le contrôle total sur mes choix et la qualité de mon code.</p>
           </div>
           <div class="avail reveal">
             <div class="avail-title">Recherche active</div>
-            <p>Opportunités en développement full stack sur des applications métier complexes, refontes ou maintenance évolutive. Stacks prioritaires : Java/Angular, Laravel/Angular ou Symfony/Angular.</p>
+            <p>Opportunités en développement full stack sur des applications métier complexes, refontes ou maintenance
+              évolutive. Stacks prioritaires : Java/Angular, Laravel/Angular ou Symfony/Angular.</p>
             <div class="avail-meta">
-              <div class="avail-item"><span class="k">Zones</span><span class="v">Clermont-Ferrand · Rouen · Paris (hybride) · Télétravail</span></div>
+              <div class="avail-item"><span class="k">Zones</span><span class="v">Clermont-Ferrand · Rouen · Paris
+                  (hybride) · Télétravail</span></div>
               <div class="avail-item"><span class="k">Disponibilité</span><span class="v">Immédiate</span></div>
             </div>
             <div class="avail-actions">
-              <a class="btn btn-primary btn-block" href="mailto:meynadier.renaud@gmail.com" data-icon="mail">Me contacter par e-mail</a>
+              <a class="btn btn-primary btn-block" href="mailto:meynadier.renaud@gmail.com" data-icon="mail">Me
+                contacter par e-mail</a>
               <button class="btn btn-outline btn-block" id="copy-email" data-icon="copy">Copier l'e-mail</button>
             </div>
           </div>
@@ -153,15 +191,17 @@
       <div class="footer-row">
         <div class="footer-left">
           <p class="footer-copy">© 2026 Renaud Meynadier. Tous droits réservés.</p>
-          <p class="footer-meta">Portfolio statique, fait main en HTML, CSS &amp; JavaScript. Retour à l'essentiel.</p>
           <p class="footer-loc">Clermont-Ferrand · Rouen · Paris (hybride) · Télétravail</p>
         </div>
-        <nav class="footer-nav">
-          <a href="https://www.linkedin.com/in/renaud-m-063" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/Ninewashburn" target="_blank" rel="noopener">GitHub</a>
-          <a href="assets/cv/CV-Renaud-Meynadier.pdf" target="_blank" rel="noopener">CV Classique</a>
-          <a href="assets/cv/CV-Renaud-Meynadier-Canva.pdf" target="_blank" rel="noopener">CV Canva</a>
-        </nav>
+        <div class="footer-right">
+          <p class="footer-meta">Portfolio statique HTML/CSS/JS, retour aux sources.</p>
+          <nav class="footer-nav">
+            <a href="https://www.linkedin.com/in/renaud-m-063" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/Ninewashburn" target="_blank" rel="noopener">GitHub</a>
+            <a href="assets/cv/renaud-meynadier-cv-classique.pdf" target="_blank" rel="noopener">CV Classique</a>
+            <a href="assets/cv/renaud-meynadier-cv-canva.pdf" target="_blank" rel="noopener">CV Canva</a>
+          </nav>
+        </div>
       </div>
     </div>
   </footer>
@@ -171,6 +211,7 @@
   <!-- Modal étude de cas (rempli par JS) -->
   <div class="modal-overlay" id="modal-overlay" aria-hidden="true"></div>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>

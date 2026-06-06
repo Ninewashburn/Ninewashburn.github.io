@@ -4,19 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page introuvable | Renaud Meynadier</title>
+    <meta name="description" content="La page demandée n'existe pas sur le portfolio de Renaud Meynadier.">
     <meta name="robots" content="noindex">
-    <link rel="canonical" href="https://ninewashburn.github.io/404.html">
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="canonical" href="https://www.renaudmeynadier.com/404.html">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="error-page">
+    <header class="error-header">
+        <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+            <span class="br">&lt;/&gt;</span>
+            <span>Renaud Meynadier</span>
+        </a>
+        <a class="btn btn-outline btn-sm" href="index.html">Retour au portfolio</a>
+    </header>
     <main class="not-found">
-        <section class="not-found-panel">
-            <span class="hero-badge">Erreur 404</span>
-            <h1 class="hero-title">Page introuvable</h1>
-            <p class="hero-pitch">Le lien ne correspond à aucune page publiée du portfolio.</p>
-            <a href="/" class="btn btn-primary">Retour au portfolio</a>
+        <section class="not-found-panel" aria-labelledby="not-found-title">
+            <div class="not-found-code" aria-hidden="true">404</div>
+            <span class="eyebrow">Erreur de navigation</span>
+            <h1 id="not-found-title">Cette page n'existe pas.</h1>
+            <p>Le lien est peut-être obsolète ou l'adresse contient une erreur. Le portfolio, lui, est toujours au bon endroit.</p>
+            <div class="not-found-actions">
+                <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+                <a href="index.html#projets" class="btn btn-secondary">Voir les projets</a>
+            </div>
         </section>
     </main>
+    <footer class="error-footer">
+        <span>© 2026 Renaud Meynadier</span>
+        <span>Portfolio statique HTML/CSS/JS</span>
+    </footer>
 </body>
 </html>
