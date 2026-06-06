@@ -191,8 +191,8 @@ section { position: relative; }
 }
 .hero-inner {
     position: relative; z-index: 1;
-    display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.85fr);
-    align-items: center; gap: clamp(48px, 6vw, 72px);
+    display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.65fr);
+    align-items: center; gap: clamp(40px, 5vw, 64px);
 }
 .hero-main { min-width: 0; }
 .hero .eyebrow { margin-bottom: 26px; }
