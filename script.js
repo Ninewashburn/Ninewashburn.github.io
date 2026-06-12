@@ -372,7 +372,7 @@ function renderProjects() {
     if (p.repo) links += `<a class="repo-link" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 15)} Dépôt</a>`;
     return `
       <article class="pcard reveal" data-stack='${JSON.stringify(p.stack)}'>
-        <div class="pcard-thumb" style="background-image:url('${p.img}');background-position:${pos}"></div>
+        <div class="pcard-thumb"><img src="${p.img}" alt="" loading="lazy" decoding="async" style="object-position:${pos}"></div>
         <div class="pcard-body">
           <div class="pcard-meta"><span class="status ${p.status.cls}">${esc(p.status.label)}</span></div>
           <p class="pcard-tagline">${esc(p.tagline)}</p>

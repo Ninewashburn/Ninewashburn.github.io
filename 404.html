@@ -7,19 +7,30 @@
     <meta name="description" content="La page demandée n'existe pas sur le portfolio de Renaud Meynadier.">
     <meta name="robots" content="noindex">
     <link rel="canonical" href="https://www.renaudmeynadier.com/404.html">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <meta name="theme-color" id="meta-theme-color" content="#090e1a">
+    <script>
+      (function () {
+        var s, light;
+        try { s = localStorage.getItem("rm-theme"); } catch (e) {}
+        light = s === "light" || (!s && matchMedia("(prefers-color-scheme: light)").matches);
+        if (light) document.documentElement.classList.add("light-theme");
+        var m = document.getElementById("meta-theme-color");
+        if (m) m.content = light ? "#f6f8fc" : "#090e1a";
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body class="error-page">
     <header class="error-header">
-        <a class="logo" href="index.html" aria-label="Retour à l'accueil">
+        <a class="logo" href="/" aria-label="Retour à l'accueil">
             <span class="br">&lt;/&gt;</span>
             <span>Renaud Meynadier</span>
         </a>
-        <a class="btn btn-outline btn-sm" href="index.html">Retour au portfolio</a>
+        <a class="btn btn-outline btn-sm" href="/">Retour au portfolio</a>
     </header>
     <main class="not-found">
         <section class="not-found-panel" aria-labelledby="not-found-title">
@@ -28,8 +39,8 @@
             <h1 id="not-found-title">Cette page n'existe pas.</h1>
             <p>Le lien est peut-être obsolète ou l'adresse contient une erreur. Le portfolio, lui, est toujours au bon endroit.</p>
             <div class="not-found-actions">
-                <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
-                <a href="index.html#projets" class="btn btn-secondary">Voir les projets</a>
+                <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+                <a href="/#projets" class="btn btn-secondary">Voir les projets</a>
             </div>
         </section>
     </main>
