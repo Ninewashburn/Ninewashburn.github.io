@@ -72,9 +72,9 @@ const PROJECTS_FR = [
     problem: "Le suivi des incidents était éclaté, les droits d'accès flous et la traçabilité insuffisante pour répondre aux exigences d'audit.",
     solution: "Une application métier centralisée structurée autour d'un contrôle d'accès par rôles (RBAC), de tableaux de bord de suivi et d'exports documentaires.",
     features: ["RBAC et gestion fine des permissions", "Tableaux de bord de suivi des incidents", "Exports PDF / Excel", "Traçabilité complète des actions"],
-    architecture: "API Laravel et SPA Angular découplées, base PostgreSQL, environnement conteneurisé Docker.",
+    architecture: "API Laravel 12 et SPA Angular 20 découplées, base MariaDB, environnement conteneurisé Docker.",
     value: "Visibilité temps réel sur les incidents, conformité renforcée et actions pleinement auditables.",
-    stack: ["Laravel", "Angular", "PostgreSQL", "Docker"],
+    stack: ["Laravel 12", "Angular 20", "MariaDB", "Docker"],
     demo: "/projects/security-base/",
     repo: "https://github.com/Ninewashburn/Security-Base"
   },
@@ -189,9 +189,9 @@ const PROJECTS_EN = [
     problem: "Incident tracking was fragmented, access rights unclear, and traceability insufficient to meet audit requirements.",
     solution: "A centralised business application structured around role-based access control (RBAC), tracking dashboards, and document exports.",
     features: ["RBAC and granular permission management", "Incident tracking dashboards", "PDF / Excel exports", "Complete action traceability"],
-    architecture: "Decoupled Laravel API and Angular SPA, PostgreSQL database, Docker containerised environment.",
+    architecture: "Decoupled Laravel 12 API and Angular 20 SPA, MariaDB database, Docker containerised environment.",
     value: "Real-time visibility on incidents, stronger compliance, and fully auditable actions.",
-    stack: ["Laravel", "Angular", "PostgreSQL", "Docker"],
+    stack: ["Laravel 12", "Angular 20", "MariaDB", "Docker"],
     demo: "/projects/security-base/",
     repo: "https://github.com/Ninewashburn/Security-Base"
   },
@@ -367,7 +367,7 @@ function renderProjects() {
   grid.innerHTML = PROJECTS.map((p, i) => {
     const pos = p.thumbPos ?? "center top";
     let links = "";
-    if (p.demo) links += `<a class="repo-link" href="${p.demo}">${icon("external", 15)} Démo</a>`;
+    if (p.demo) links += `<a class="repo-link" href="${p.demo}" target="_blank" rel="noopener">${icon("external", 15)} Démo</a>`;
     if (p.site) links += `<a class="repo-link" href="${p.site}" target="_blank" rel="noopener">${icon("external", 15)} Site</a>`;
     if (p.repo) links += `<a class="repo-link" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 15)} Dépôt</a>`;
     return `
@@ -460,7 +460,7 @@ function openModal(p, trigger) {
   ];
 
   let foot = "";
-  if (p.demo) foot += `<a class="btn btn-secondary btn-sm" href="${p.demo}">${icon("external", 16)} ${t(UI.viewDemo)}</a>`;
+  if (p.demo) foot += `<a class="btn btn-secondary btn-sm" href="${p.demo}" target="_blank" rel="noopener">${icon("external", 16)} ${t(UI.viewDemo)}</a>`;
   if (p.site) foot += `<a class="btn btn-secondary btn-sm" href="${p.site}" target="_blank" rel="noopener">${icon("external", 16)} ${t(UI.visitSite)}</a>`;
   if (p.repo) foot += `<a class="btn btn-secondary btn-sm" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 16)} ${t(UI.viewRepo)}</a>`;
   foot += `<button class="btn btn-outline btn-sm" data-close>${t(UI.close)}</button>`;
