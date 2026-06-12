@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DORA Analytics · Démo</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="demo-banner">
+    <span>⚠ <b data-i18n="demoLabel">DÉMO INTERACTIVE</b> - <span data-i18n="demoSub">données simulées · le projet réel
+        tourne sur Angular 21 + FastAPI</span></span>
+    <span>
+      <a href="https://renaudmeynadier.com" data-i18n="backPortfolio">← Portfolio</a> &nbsp;·&nbsp;
+      <a href="https://github.com/Ninewashburn/Dora-Dashboard" target="_blank">GitHub ↗</a>
+    </span>
+  </div>
+
+  <div class="topbar">
+    <span class="tz"><b>PARIS</b><span>EMEA</span><b id="tz-paris">--:--</b></span>
+    <span class="tz"><b>TOKYO</b><span>APAC</span><b id="tz-tokyo">--:--</b></span>
+    <span class="tz"><b>CHENNAI</b><span>APAC</span><b id="tz-chennai">--:--</b></span>
+    <span class="tz"><b>ATLANTA</b><span>AMERICAS</span><b id="tz-atlanta">--:--</b></span>
+    <span class="live">SYSTEM LIVE</span>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-ic"></div>
+        <div><b>DORA Analytics</b><small data-i18n="perfOps">Performance Ops</small></div>
+      </div>
+      <div class="side-label" data-i18n="regionsTeams">Régions &amp; Équipes</div>
+      <div id="team-list"></div>
+      <div class="health">
+        <div class="side-label" data-i18n="health">Global Service Health</div>
+        <div class="health-row"><span>EMEA</span><span class="h-on">ONLINE</span></div>
+        <div class="health-row"><span>APAC</span><span class="h-on">ONLINE</span></div>
+        <div class="health-row"><span>AMERICAS</span><span class="h-maint">MAINTENANCE</span></div>
+        <div class="fullelite" id="side-elite"><b>FULL ELITE</b><small>Full Elite</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="head">
+        <div>
+          <h1 data-i18n="title">Tableau de bord DORA</h1>
+          <div class="sub" data-i18n="subtitle">Operational Integrity - Performance logicielle · Multi-régions</div>
+        </div>
+        <div class="head-actions">
+          <span class="refresh-info">· <span data-i18n="updated">Actualisé il y a</span> <span id="ago">0</span> s</span>
+          <button class="hbtn" id="theme-btn" title="Thème">☀</button>
+          <select class="hbtn" id="lang-sel">
+            <option value="fr">FR</option>
+            <option value="en">EN</option>
+          </select>
+          <button class="hbtn" id="refresh-btn">⟳ <span data-i18n="refresh">ACTUALISER</span></button>
+          <button class="hbtn" id="csv-btn">↓ CSV</button>
+        </div>
+      </div>
+
+      <div class="crumb">
+        <div>
+          <div class="path"><span id="crumb-region">EMEA</span> / <b id="crumb-team">DOTI-Paris</b></div>
+          <div class="meta"><span data-i18n="measured">Mesuré le</span> <span id="measured-at">25/05/2026 00:08 (UTC+2)</span></div>
+        </div>
+        <span class="badge-fullelite" id="head-elite">★ FULL ELITE</span>
+      </div>
+
+      <div class="kpis" id="kpis"></div>
+
+      <div class="sec-title" data-i18n="compare">Comparaison des équipes</div>
+      <div class="sec-sub" data-i18n="compareSub">Performance relative par métrique DORA</div>
+      <div class="charts" id="charts"></div>
+
+      <div class="table-head">
+        <div class="sec-title" data-i18n="overview">Vue d'ensemble</div>
+        <span class="table-src">Source: Operational Data Lake</span>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th data-i18n="thTeam">Équipe</th>
+              <th data-i18n="thRegion">Région</th>
+              <th data-i18n="thFreq">Fréq. déploiement</th>
+              <th data-i18n="thLead">Délai</th>
+              <th>CFR</th>
+              <th>TTR</th>
+              <th data-i18n="thMeasured">Mesuré</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="foot">
+    <span>© 2026 Corporate DORA Operations - Data Integrity Guaranteed</span>
+    <span><a href="#">Support</a><a href="#">Documentation</a><a href="#">API Status</a></span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

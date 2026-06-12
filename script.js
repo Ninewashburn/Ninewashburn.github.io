@@ -31,6 +31,7 @@ const UI = {
   rowStack:      { fr: "Stack technique",                                   en: "Tech stack" },
   visitSite:     { fr: "Visiter le site",                                   en: "Visit site" },
   viewRepo:      { fr: "Voir le dépôt",                                     en: "View repository" },
+  viewDemo:      { fr: "Voir la démo",                                      en: "View demo" },
   close:         { fr: "Fermer",                                            en: "Close" },
 };
 
@@ -74,21 +75,23 @@ const PROJECTS_FR = [
     architecture: "API Laravel et SPA Angular découplées, base PostgreSQL, environnement conteneurisé Docker.",
     value: "Visibilité temps réel sur les incidents, conformité renforcée et actions pleinement auditables.",
     stack: ["Laravel", "Angular", "PostgreSQL", "Docker"],
+    demo: "/projects/security-base/",
     repo: "https://github.com/Ninewashburn/Security-Base"
   },
   {
-    name: "La Nîmes'Alerie",
-    tagline: "Projet personnel · Refonte e-commerce de bout en bout",
-    status: { label: "Terminé", cls: "done" },
-    img: "/assets/images/projects/nimes-alerie.png",
-    context: "Ancienne boutique e-commerce monolithique devenue difficile à faire évoluer.",
-    problem: "Code legacy coûteux à maintenir, front et back fortement couplés, ajout de fonctionnalités risqué.",
-    solution: "Refonte vers une architecture découplée : API Symfony / API Platform d'un côté, application Angular de l'autre.",
-    features: ["Boutique dynamique et catalogue", "Gestion du panier et compte client", "Back-office d'administration", "Séparation claire front / back"],
-    architecture: "API Platform (Symfony 7.2) exposant une API REST, front Angular 19, conteneurisation Docker.",
-    value: "Une base maintenable et évolutive, prête à accueillir de nouvelles fonctionnalités sans dette.",
-    stack: ["Angular 19", "Symfony 7.2", "API Platform", "Docker"],
-    repo: "https://github.com/Ninewashburn/Nimes-Alerie"
+    name: "CV Forge",
+    tagline: "Projet personnel · Prototype local-first",
+    status: { label: "Idée / Prototype", cls: "concept" },
+    img: "/assets/images/projects/cv-forge.jpg",
+    context: "Candidatures multiples à personnaliser sans dérive ni invention.",
+    problem: "Générer des CV adaptés à chaque offre tout en garantissant qu'aucun fait n'est inventé.",
+    solution: "Un assistant local-first qui compose les documents à partir d'un référentiel de faits validés et conserve l'historique.",
+    features: ["Matching offre / profil", "Génération strictement contrôlée par les faits", "Historique exact des candidatures"],
+    architecture: "Application local-first, interface Angular, traitements Python, stockage SQLite.",
+    value: "Gain de temps, cohérence des candidatures et contrôle total sur le contenu.",
+    stack: ["Local-first", "Angular", "Python", "SQLite"],
+    demo: "/projects/cvforge-lite/",
+    repo: "https://github.com/Ninewashburn/Cv-Forge"
   },
   {
     name: "Creasoka",
@@ -105,6 +108,35 @@ const PROJECTS_FR = [
     site: "https://creasoka.fr/", repo: "https://github.com/Ninewashburn/Creasoka"
   },
   {
+    name: "Dora Dashboard",
+    tagline: "Projet personnel · Inspiré de pratiques DevOps réelles",
+    status: { label: "Projet technique", cls: "tech" },
+    img: "/assets/images/projects/dora-dashboard.png",
+    context: "Pilotage de la performance de livraison logicielle via les métriques DORA.",
+    problem: "Les métriques de livraison étaient dispersées, sans vue consolidée pour piloter l'amélioration.",
+    solution: "Un tableau de bord dédié consolidant les quatre métriques DORA avec comparaisons dans le temps.",
+    features: ["Fréquence de déploiement", "Taux d'échec des changements", "Temps moyen de restauration", "Graphiques comparatifs · mode clair / sombre"],
+    architecture: "Front Angular et API FastAPI (Python), conteneurisation Docker.",
+    value: "Une aide concrète au pilotage et à l'amélioration continue des équipes.",
+    stack: ["Angular", "FastAPI", "Python", "Docker"],
+    demo: "/projects/dora-dashboard/",
+    repo: "https://github.com/Ninewashburn/Dora-Dashboard"
+  },
+  {
+    name: "La Nîmes'Alerie",
+    tagline: "Projet personnel · Refonte e-commerce de bout en bout",
+    status: { label: "Terminé", cls: "done" },
+    img: "/assets/images/projects/nimes-alerie.png",
+    context: "Ancienne boutique e-commerce monolithique devenue difficile à faire évoluer.",
+    problem: "Code legacy coûteux à maintenir, front et back fortement couplés, ajout de fonctionnalités risqué.",
+    solution: "Refonte vers une architecture découplée : API Symfony / API Platform d'un côté, application Angular de l'autre.",
+    features: ["Boutique dynamique et catalogue", "Gestion du panier et compte client", "Back-office d'administration", "Séparation claire front / back"],
+    architecture: "API Platform (Symfony 7.2) exposant une API REST, front Angular 19, conteneurisation Docker.",
+    value: "Une base maintenable et évolutive, prête à accueillir de nouvelles fonctionnalités sans dette.",
+    stack: ["Angular 19", "Symfony 7.2", "API Platform", "Docker"],
+    repo: "https://github.com/Ninewashburn/Nimes-Alerie"
+  },
+  {
     name: "Bagni-Plage",
     tagline: "Projet personnel · Application de réservation",
     status: { label: "Terminé", cls: "done" },
@@ -117,34 +149,6 @@ const PROJECTS_FR = [
     value: "Des réservations fiables et une gestion centralisée des disponibilités.",
     stack: ["Java", "Spring Boot", "Angular", "PostgreSQL"],
     repo: "https://github.com/Ninewashburn/Bagni-Plage"
-  },
-  {
-    name: "Dora Dashboard",
-    tagline: "Projet personnel · Inspiré de pratiques DevOps réelles",
-    status: { label: "Projet technique", cls: "tech" },
-    img: "/assets/images/projects/dora-dashboard.png",
-    context: "Pilotage de la performance de livraison logicielle via les métriques DORA.",
-    problem: "Les métriques de livraison étaient dispersées, sans vue consolidée pour piloter l'amélioration.",
-    solution: "Un tableau de bord dédié consolidant les quatre métriques DORA avec comparaisons dans le temps.",
-    features: ["Fréquence de déploiement", "Taux d'échec des changements", "Temps moyen de restauration", "Graphiques comparatifs · mode clair / sombre"],
-    architecture: "Front Angular et API FastAPI (Python), conteneurisation Docker.",
-    value: "Une aide concrète au pilotage et à l'amélioration continue des équipes.",
-    stack: ["Angular", "FastAPI", "Python", "Docker"],
-    repo: "https://github.com/Ninewashburn/Dora-Dashboard"
-  },
-  {
-    name: "CV Forge",
-    tagline: "Projet personnel · Prototype local-first",
-    status: { label: "Idée / Prototype", cls: "concept" },
-    img: "/assets/images/projects/cv-forge.jpg",
-    context: "Candidatures multiples à personnaliser sans dérive ni invention.",
-    problem: "Générer des CV adaptés à chaque offre tout en garantissant qu'aucun fait n'est inventé.",
-    solution: "Un assistant local-first qui compose les documents à partir d'un référentiel de faits validés et conserve l'historique.",
-    features: ["Matching offre / profil", "Génération strictement contrôlée par les faits", "Historique exact des candidatures"],
-    architecture: "Application local-first, interface Angular, traitements Python, stockage SQLite.",
-    value: "Gain de temps, cohérence des candidatures et contrôle total sur le contenu.",
-    stack: ["Local-first", "Angular", "Python", "SQLite"],
-    repo: "https://github.com/Ninewashburn/Cv-Forge"
   }
 ];
 
@@ -188,21 +192,23 @@ const PROJECTS_EN = [
     architecture: "Decoupled Laravel API and Angular SPA, PostgreSQL database, Docker containerised environment.",
     value: "Real-time visibility on incidents, stronger compliance, and fully auditable actions.",
     stack: ["Laravel", "Angular", "PostgreSQL", "Docker"],
+    demo: "/projects/security-base/",
     repo: "https://github.com/Ninewashburn/Security-Base"
   },
   {
-    name: "La Nîmes'Alerie",
-    tagline: "Personal project · End-to-end e-commerce redesign",
-    status: { label: "Completed", cls: "done" },
-    img: "/assets/images/projects/nimes-alerie.png",
-    context: "A legacy e-commerce monolith that had become difficult to evolve.",
-    problem: "Costly-to-maintain legacy code, tightly coupled front and back ends, risky feature additions.",
-    solution: "Redesign towards a decoupled architecture: Symfony / API Platform on one side, an Angular application on the other.",
-    features: ["Dynamic shop and product catalogue", "Cart and customer account management", "Administration back-office", "Clear front / back separation"],
-    architecture: "API Platform (Symfony 7.2) exposing a REST API, Angular 19 frontend, Docker containerisation.",
-    value: "A maintainable, scalable codebase ready to accommodate new features without technical debt.",
-    stack: ["Angular 19", "Symfony 7.2", "API Platform", "Docker"],
-    repo: "https://github.com/Ninewashburn/Nimes-Alerie"
+    name: "CV Forge",
+    tagline: "Personal project · Local-first prototype",
+    status: { label: "Idea / Prototype", cls: "concept" },
+    img: "/assets/images/projects/cv-forge.jpg",
+    context: "Multiple job applications to tailor without drift or invented details.",
+    problem: "Generating CVs adapted to each job offer while guaranteeing no facts are invented.",
+    solution: "A local-first assistant that composes documents from a validated fact repository and keeps a full history.",
+    features: ["Job offer / profile matching", "Generation strictly controlled by facts", "Exact application history"],
+    architecture: "Local-first application, Angular interface, Python processing, SQLite storage.",
+    value: "Time savings, consistent applications, and full control over the content.",
+    stack: ["Local-first", "Angular", "Python", "SQLite"],
+    demo: "/projects/cvforge-lite/",
+    repo: "https://github.com/Ninewashburn/Cv-Forge"
   },
   {
     name: "Creasoka",
@@ -219,6 +225,35 @@ const PROJECTS_EN = [
     site: "https://creasoka.fr/", repo: "https://github.com/Ninewashburn/Creasoka"
   },
   {
+    name: "Dora Dashboard",
+    tagline: "Personal project · Inspired by real DevOps practices",
+    status: { label: "Technical project", cls: "tech" },
+    img: "/assets/images/projects/dora-dashboard.png",
+    context: "Monitoring software delivery performance via DORA metrics.",
+    problem: "Delivery metrics were scattered with no consolidated view for driving improvement.",
+    solution: "A dedicated dashboard consolidating the four DORA metrics with time-based comparisons.",
+    features: ["Deployment frequency", "Change failure rate", "Mean time to recovery", "Comparison charts · light / dark mode"],
+    architecture: "Angular frontend and FastAPI (Python) API, Docker containerisation.",
+    value: "Concrete support for driving and continuously improving team delivery performance.",
+    stack: ["Angular", "FastAPI", "Python", "Docker"],
+    demo: "/projects/dora-dashboard/",
+    repo: "https://github.com/Ninewashburn/Dora-Dashboard"
+  },
+  {
+    name: "La Nîmes'Alerie",
+    tagline: "Personal project · End-to-end e-commerce redesign",
+    status: { label: "Completed", cls: "done" },
+    img: "/assets/images/projects/nimes-alerie.png",
+    context: "A legacy e-commerce monolith that had become difficult to evolve.",
+    problem: "Costly-to-maintain legacy code, tightly coupled front and back ends, risky feature additions.",
+    solution: "Redesign towards a decoupled architecture: Symfony / API Platform on one side, an Angular application on the other.",
+    features: ["Dynamic shop and product catalogue", "Cart and customer account management", "Administration back-office", "Clear front / back separation"],
+    architecture: "API Platform (Symfony 7.2) exposing a REST API, Angular 19 frontend, Docker containerisation.",
+    value: "A maintainable, scalable codebase ready to accommodate new features without technical debt.",
+    stack: ["Angular 19", "Symfony 7.2", "API Platform", "Docker"],
+    repo: "https://github.com/Ninewashburn/Nimes-Alerie"
+  },
+  {
     name: "Bagni-Plage",
     tagline: "Personal project · Booking application",
     status: { label: "Completed", cls: "done" },
@@ -231,34 +266,6 @@ const PROJECTS_EN = [
     value: "Reliable bookings and centralised availability management.",
     stack: ["Java", "Spring Boot", "Angular", "PostgreSQL"],
     repo: "https://github.com/Ninewashburn/Bagni-Plage"
-  },
-  {
-    name: "Dora Dashboard",
-    tagline: "Personal project · Inspired by real DevOps practices",
-    status: { label: "Technical project", cls: "tech" },
-    img: "/assets/images/projects/dora-dashboard.png",
-    context: "Monitoring software delivery performance via DORA metrics.",
-    problem: "Delivery metrics were scattered with no consolidated view for driving improvement.",
-    solution: "A dedicated dashboard consolidating the four DORA metrics with time-based comparisons.",
-    features: ["Deployment frequency", "Change failure rate", "Mean time to recovery", "Comparison charts · light / dark mode"],
-    architecture: "Angular frontend and FastAPI (Python) API, Docker containerisation.",
-    value: "Concrete support for driving and continuously improving team delivery performance.",
-    stack: ["Angular", "FastAPI", "Python", "Docker"],
-    repo: "https://github.com/Ninewashburn/Dora-Dashboard"
-  },
-  {
-    name: "CV Forge",
-    tagline: "Personal project · Local-first prototype",
-    status: { label: "Idea / Prototype", cls: "concept" },
-    img: "/assets/images/projects/cv-forge.jpg",
-    context: "Multiple job applications to tailor without drift or invented details.",
-    problem: "Generating CVs adapted to each job offer while guaranteeing no facts are invented.",
-    solution: "A local-first assistant that composes documents from a validated fact repository and keeps a full history.",
-    features: ["Job offer / profile matching", "Generation strictly controlled by facts", "Exact application history"],
-    architecture: "Local-first application, Angular interface, Python processing, SQLite storage.",
-    value: "Time savings, consistent applications, and full control over the content.",
-    stack: ["Local-first", "Angular", "Python", "SQLite"],
-    repo: "https://github.com/Ninewashburn/Cv-Forge"
   }
 ];
 
@@ -360,6 +367,7 @@ function renderProjects() {
   grid.innerHTML = PROJECTS.map((p, i) => {
     const pos = p.thumbPos ?? "center top";
     let links = "";
+    if (p.demo) links += `<a class="repo-link" href="${p.demo}">${icon("external", 15)} Démo</a>`;
     if (p.site) links += `<a class="repo-link" href="${p.site}" target="_blank" rel="noopener">${icon("external", 15)} Site</a>`;
     if (p.repo) links += `<a class="repo-link" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 15)} Dépôt</a>`;
     return `
@@ -452,6 +460,7 @@ function openModal(p, trigger) {
   ];
 
   let foot = "";
+  if (p.demo) foot += `<a class="btn btn-secondary btn-sm" href="${p.demo}">${icon("external", 16)} ${t(UI.viewDemo)}</a>`;
   if (p.site) foot += `<a class="btn btn-secondary btn-sm" href="${p.site}" target="_blank" rel="noopener">${icon("external", 16)} ${t(UI.visitSite)}</a>`;
   if (p.repo) foot += `<a class="btn btn-secondary btn-sm" href="${p.repo}" target="_blank" rel="noopener">${icon("github", 16)} ${t(UI.viewRepo)}</a>`;
   foot += `<button class="btn btn-outline btn-sm" data-close>${t(UI.close)}</button>`;

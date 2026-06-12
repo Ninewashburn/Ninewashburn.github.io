@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecuriBase · Démo - Gestion d'incidents sécurité</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="demo-banner">
+    <span>⚠ <b>DÉMO INTERACTIVE</b> - données fictives · projet réel : Laravel 12 + Angular 20 + MariaDB</span>
+    <span style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+      <label style="font-size:.78rem">Rôle :
+        <select id="role-sel">
+          <option value="admin">Administrateur</option>
+          <option value="resp">Responsable</option>
+          <option value="tech">Technicien</option>
+          <option value="consult">Consultant</option>
+        </select>
+      </label>
+      <button class="reset" id="reset-btn">⟲ Réinitialiser</button>
+      <a href="https://renaudmeynadier.com">← Portfolio</a>
+      <a href="https://github.com/Ninewashburn/security-base" target="_blank">GitHub ↗</a>
+    </span>
+  </div>
+
+  <div id="app">
+    <header class="app">
+      <div class="brand"><span class="shield">🛡</span> SecuriBase</div>
+      <nav class="main">
+        <a href="#" onclick="return false">Accueil</a>
+        <a href="#" onclick="return false">Ressources</a>
+        <a href="#" onclick="return false">Articles</a>
+        <a href="#" onclick="return false">Applications</a>
+        <a href="#" onclick="return false">Annuaire</a>
+        <a href="#" onclick="return false">Aide</a>
+      </nav>
+      <button class="theme-btn" id="theme-btn" title="Mode nuit">☀️</button>
+    </header>
+    <div class="subbar">
+      <span>Connecté en tant que : <b id="persona">-</b> <span style="opacity:.8">(session démo)</span></span>
+      <span class="links"><a href="#" onclick="return false">Gouvernance</a><a href="#"
+          onclick="return false">Assistance</a><a href="#" onclick="return false">Archives</a></span>
+    </div>
+
+    <main>
+      <div class="title-row">
+        <h1>Base d'Incidents Sécurité</h1>
+        <div class="title-meta">
+          <span><b>Gestion des incidents de sécurité :</b> <span id="count-total">0</span> incidents total</span>
+          <span class="pill enc"><span id="count-enc">0</span> En cours</span>
+          <span class="pill clo"><span id="count-clo">0</span> Cloturés</span>
+          <span class="pill att"><span id="count-att">0</span> En attente</span>
+        </div>
+      </div>
+
+      <div class="toolbar" id="toolbar">
+        <button class="tb excel" onclick="openExport('xlsx')">📊 Export Excel</button>
+        <button class="tb pdf" onclick="openExport('pdf')">📄 Export PDF</button>
+        <button class="tb arch" id="btn-arch" onclick="toggleArchives()">🗂 Voir archives</button>
+        <button class="tb trash" id="btn-trash" onclick="openTrash()">🗑 Voir corbeille</button>
+        <button class="tb add" id="btn-add" onclick="openForm()">⚠ Ajouter incident</button>
+        <button class="tb diff" id="btn-diff" onclick="openDiffusion()">📧 Liste diffusion</button>
+        <button class="tb dash" onclick="openDash()">📈 Tableau de bord</button>
+        <button class="tb gest" id="btn-gest" onclick="openGestion()">⚙ Mode gestion</button>
+        <button class="tb cols" onclick="openCols()">🔧 Gérer colonnes</button>
+        <button class="tb adv" onclick="toggleAdv()">🔍 Recherche avancée</button>
+        <div class="searchbox">🔎 <input id="search" placeholder="Rechercher..."
+            oninput="state.search=this.value;state.page=1;renderTable()"></div>
+      </div>
+
+      <div class="filters-banner" id="filters-banner" style="display:none">
+        <span>Filtres actifs : <span class="chip">Statut : Archivé ✕</span></span>
+        <button class="clear" onclick="toggleArchives()">🗑 Effacer tous les filtres</button>
+      </div>
+
+      <div class="adv-panel" id="adv-panel">
+        <h3>Recherche avancée</h3>
+        <div class="adv-grid">
+          <div class="fld"><label>ID</label><input id="f-id" placeholder="Ex : 20257" oninput="advChange()"></div>
+          <div class="fld"><label>Objet</label><input id="f-objet" placeholder="Ex : Coupure" oninput="advChange()">
+          </div>
+          <div class="fld"><label>Domaine</label><select id="f-dom" onchange="advChange()">
+              <option value="">Tous</option>
+              <option>Biens & personnes</option>
+              <option>Production</option>
+              <option>Sécurité SI</option>
+            </select></div>
+          <div class="fld"><label>Gravité</label><select id="f-grav" onchange="advChange()">
+              <option value="">Tous</option>
+              <option>Faible</option>
+              <option>Moyen</option>
+              <option>Grave</option>
+              <option>Très grave</option>
+            </select></div>
+          <div class="fld"><label>Statut</label><select id="f-statut" onchange="advChange()">
+              <option value="">Tous (hors archives)</option>
+              <option>En cours</option>
+              <option>En attente de validation</option>
+              <option>Cloturé</option>
+            </select></div>
+          <div class="fld"><label>Site impacté</label><select id="f-site" onchange="advChange()">
+              <option value="">Tous les sites</option>
+              <option>Clermont-Fd</option>
+              <option>Aurillac</option>
+              <option>Le Puy</option>
+              <option>Moulins</option>
+              <option>Centre Nord</option>
+              <option>Centre Sud</option>
+            </select></div>
+          <div class="fld"><label>Rédacteur</label><input id="f-red" placeholder="Ex : Dupont" oninput="advChange()">
+          </div>
+          <div class="fld"><label>De la date du</label><input type="date" id="f-from" onchange="advChange()"></div>
+          <div class="fld"><label>À la date au</label><input type="date" id="f-to" onchange="advChange()"></div>
+        </div>
+        <button class="adv-reset" onclick="advReset()">Réinitialiser</button>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="inc">
+          <thead id="thead"></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="pag">
+          <span>Affichage de <span id="pag-info">-</span> élément(s)
+            <select id="per-sel" onchange="state.per=+this.value;state.page=1;renderTable()">
+              <option>5</option>
+              <option selected>10</option>
+              <option>20</option>
+            </select> par page
+          </span>
+          <div class="pages" id="pages"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app">
+      <div class="foot-grid">
+        <div>
+          <h5>Navigation</h5><a href="#" onclick="return false">Accueil</a><a href="#"
+            onclick="return false">Ressources</a><a href="#" onclick="return false">Articles</a>
+        </div>
+        <div>
+          <h5>Applications & Services</h5><a href="#" onclick="return false">Applications</a><a href="#"
+            onclick="return false">Annuaire</a><a href="#" onclick="return false">Aide</a>
+        </div>
+        <div>
+          <h5>Support & Informations</h5><a href="#" onclick="return false">Assistance</a><a href="#"
+            onclick="return false">Archives</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 SecuriBase - Démo portfolio, données fictives</span>
+        <span>SecuriBase &nbsp;|&nbsp; Renaud Meynadier</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal" id="modal"></div>
+  </div>
+  <div id="toasts"></div>
+  <div class="print-only" id="print-area"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
