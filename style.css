@@ -63,12 +63,15 @@
     --bg-footer: var(--ink-950);
     --fg-1: #f5f8fc;
     --fg-2: #aab4c5;
-    --fg-3: #6b7689;
+    --fg-3: #828ca0;
     --accent: #e0683c;
     --accent-hover: #c9542c;
     --accent-fg: #ffffff;
     --accent-soft: rgba(224, 104, 60, 0.12);
     --on-accent-quiet: rgba(255, 255, 255, 0.16);
+    /* Orange assombri : fond plein sous texte blanc, pour contraste AA (4.65:1) */
+    --accent-btn: #c5502a;
+    --accent-btn-hover: #b0481f;
     --line: rgba(148, 163, 184, 0.12);
     --line-strong: rgba(148, 163, 184, 0.20);
 }
@@ -83,7 +86,7 @@ html.light-theme {
     --bg-footer: #eaeef5;
     --fg-1: #0c1322;
     --fg-2: #45516a;
-    --fg-3: #6b7689;
+    --fg-3: #5b6678;
     --accent: #c9542c;
     --accent-hover: #a8431f;
     --accent-soft: rgba(224, 104, 60, 0.10);
@@ -178,7 +181,7 @@ button:focus-visible {
     padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: 600;
-    background: var(--accent);
+    background: var(--accent-btn);
     color: var(--accent-fg);
     border-radius: var(--radius-sm);
     outline: none;
@@ -286,12 +289,12 @@ section {
 }
 
 .btn-primary {
-    background: var(--accent);
+    background: var(--accent-btn);
     color: var(--accent-fg);
 }
 
 .btn-primary:hover {
-    background: var(--accent-hover);
+    background: var(--accent-btn-hover);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -1025,8 +1028,8 @@ section {
 }
 
 .filter-btn[aria-pressed="true"] {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--accent-btn);
+    border-color: var(--accent-btn);
     color: var(--accent-fg);
 }
 
@@ -1693,7 +1696,7 @@ section {
     align-items: center;
     justify-content: center;
     color: var(--accent-fg);
-    background: var(--accent);
+    background: var(--accent-btn);
     border: none;
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-lg);
@@ -1711,7 +1714,7 @@ section {
 }
 
 .back-to-top:hover {
-    background: var(--accent-hover);
+    background: var(--accent-btn-hover);
     transform: translateY(-2px) scale(1);
 }
 
