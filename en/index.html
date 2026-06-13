@@ -38,9 +38,14 @@
   <link rel="apple-touch-icon" href="/assets/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" media="print" onload="this.media='all'"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  </noscript>
   <link rel="stylesheet" href="/style.css">
 
   <script type="application/ld+json">
@@ -52,7 +57,6 @@
         "@id": "https://www.renaudmeynadier.com/#person",
         "name": "Renaud Meynadier",
         "jobTitle": "Full Stack Developer",
-        "email": "meynadier.renaud@gmail.com",
         "url": "https://www.renaudmeynadier.com/",
         "sameAs": [
           "https://www.linkedin.com/in/renaud-m-063",
@@ -219,7 +223,7 @@
               <div class="avail-item"><span class="k">Availability</span><span class="v">Immediate</span></div>
             </div>
             <div class="avail-actions">
-              <a class="btn btn-primary btn-block" href="mailto:meynadier.renaud@gmail.com" data-icon="mail">Contact me by email</a>
+              <a class="btn btn-primary btn-block" id="email-link" href="#contact" data-icon="mail">Contact me by email</a>
               <button class="btn btn-outline btn-block" id="copy-email" data-icon="copy">Copy email</button>
             </div>
           </div>

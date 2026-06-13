@@ -3,7 +3,8 @@
    script.js - données + rendu + interactions, JavaScript pur (zéro dépendance)
    ========================================================================== */
 
-const EMAIL = "meynadier.renaud@gmail.com";
+/* Adresse assemblée au runtime : jamais en clair dans le HTML (anti-scraping) */
+const EMAIL = ["meynadier.renaud", "gmail.com"].join("@");
 
 /* ---- Locale --------------------------------------------------------------- */
 const LANG = location.pathname.startsWith("/en") ? "en" : "fr";
@@ -557,6 +558,12 @@ document.querySelectorAll("[data-icon]").forEach((el) => {
   document.addEventListener("click", (e) => {
     if (!action.contains(e.target)) { action.classList.remove("open"); toggleBtn.setAttribute("aria-expanded", "false"); }
   });
+}
+
+/* ---- Lien e-mail posé au runtime (anti-scraping) -------------------------- */
+{
+  const link = document.getElementById("email-link");
+  if (link) link.href = `mailto:${EMAIL}`;
 }
 
 /* ---- Copier l'e-mail ------------------------------------------------------ */
