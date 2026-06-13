@@ -25,7 +25,7 @@ nav.main span.on{color:#fff;background:rgba(63,107,255,.18);padding:.3rem .8rem;
 .pill{background:var(--blue);color:#fff;border:none;border-radius:999px;padding:.4rem 1.1rem;font-weight:700;font-size:.8rem}
 
 /* layout */
-main{flex:1;max-width:1500px;width:100%;margin:0 auto;padding:1.8rem 1.6rem 3rem}
+main{flex:1;max-width:1180px;width:100%;margin:0 auto;padding:1.8rem 1.6rem 3rem}
 .bc{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--cyan);margin-bottom:.9rem;display:flex;gap:1rem;flex-wrap:wrap}
 .bc .live{color:var(--mag)}
 .title-row{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.6rem}
@@ -40,7 +40,7 @@ h1.title em{color:var(--blue);font-style:italic}
 .sysbar.m .t div{background:var(--mag);width:88%;height:100%}
 .sysbar.c .t div{background:var(--cyan);width:96%;height:100%}
 
-.cols{display:grid;grid-template-columns:250px minmax(0,1fr) 270px;gap:1.3rem;align-items:start}
+.cols{display:grid;grid-template-columns:260px minmax(0,1fr) 260px;gap:1.6rem;align-items:start}
 @media(max-width:1080px){.cols{grid-template-columns:1fr};.side{order:2}}
 
 /* side panels */
@@ -75,9 +75,9 @@ h1.title em{color:var(--blue);font-style:italic}
 
 /* console */
 .console{background:var(--panel2);border:2px solid var(--border2);border-radius:26px;padding:16px;
-  max-width:500px;margin-inline:auto;
+  max-width:540px;margin-inline:auto;
   box-shadow:0 0 60px rgba(63,107,255,.13), inset 0 0 30px rgba(0,0,0,.5)}
-canvas{display:block;width:100%;max-width:468px;margin-inline:auto;aspect-ratio:480/560;height:auto;
+canvas{display:block;width:100%;max-width:480px;margin-inline:auto;aspect-ratio:480/560;height:auto;
   background:#000;border:3px solid #2C3F6B;border-radius:12px}
 .knobs{display:flex;align-items:center;gap:1rem;justify-content:center;padding-top:14px}
 .knob{width:30px;height:30px;border-radius:50%;background:#0A101D;border:1px solid var(--border2)}

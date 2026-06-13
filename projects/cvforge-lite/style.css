@@ -50,7 +50,7 @@ button { font: inherit; cursor: pointer }
 
 /* Masthead */
 .masthead {
-  padding: 26px 0 16px;
+  padding-block: 26px 16px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -110,7 +110,7 @@ button { font: inherit; cursor: pointer }
   gap: 6px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 10px 0;
+  padding-block: 10px;
   margin-bottom: 26px;
   overflow-x: auto
 }
