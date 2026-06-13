@@ -75,8 +75,10 @@ h1.title em{color:var(--blue);font-style:italic}
 
 /* console */
 .console{background:var(--panel2);border:2px solid var(--border2);border-radius:26px;padding:16px;
+  max-width:500px;margin-inline:auto;
   box-shadow:0 0 60px rgba(63,107,255,.13), inset 0 0 30px rgba(0,0,0,.5)}
-canvas{display:block;width:100%;background:#000;border:3px solid #2C3F6B;border-radius:12px}
+canvas{display:block;width:100%;max-width:468px;margin-inline:auto;aspect-ratio:480/560;height:auto;
+  background:#000;border:3px solid #2C3F6B;border-radius:12px}
 .knobs{display:flex;align-items:center;gap:1rem;justify-content:center;padding-top:14px}
 .knob{width:30px;height:30px;border-radius:50%;background:#0A101D;border:1px solid var(--border2)}
 .kbtn{width:26px;height:26px;border-radius:7px;background:#161F35;border:1px solid var(--border2)}

@@ -87,8 +87,8 @@ html.light-theme {
     --fg-1: #0c1322;
     --fg-2: #45516a;
     --fg-3: #5b6678;
-    --accent: #c9542c;
-    --accent-hover: #a8431f;
+    --accent: #b8491f;
+    --accent-hover: #9c3d18;
     --accent-soft: rgba(224, 104, 60, 0.10);
     --line: rgba(15, 23, 42, 0.10);
     --line-strong: rgba(15, 23, 42, 0.16);
@@ -1514,6 +1514,18 @@ section {
     font-size: 0.82rem;
     line-height: 1.55;
     color: var(--fg-3);
+}
+
+.footer-meta a {
+    color: var(--fg-2);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    transition: var(--transition);
+}
+
+.footer-meta a:hover {
+    color: var(--accent);
 }
 
 .footer-loc {
