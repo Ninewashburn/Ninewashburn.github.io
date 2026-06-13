@@ -134,6 +134,7 @@ const PROJECTS_FR = [
     architecture: "API Platform (Symfony 7.2) exposant une API REST, front Angular 19, conteneurisation Docker.",
     value: "Une base maintenable et évolutive, prête à accueillir de nouvelles fonctionnalités sans dette.",
     stack: ["Angular 19", "Symfony 7.2", "API Platform", "Docker"],
+    demo: "/projects/nimes-alerie/",
     repo: "https://github.com/Ninewashburn/Nimes-Alerie"
   },
   {
@@ -148,6 +149,7 @@ const PROJECTS_FR = [
     architecture: "API Spring Boot (Java) exposant une API REST, front Angular, base PostgreSQL.",
     value: "Des réservations fiables et une gestion centralisée des disponibilités.",
     stack: ["Java", "Spring Boot", "Angular", "PostgreSQL"],
+    demo: "/projects/bagni-plage/",
     repo: "https://github.com/Ninewashburn/Bagni-Plage"
   }
 ];
@@ -251,6 +253,7 @@ const PROJECTS_EN = [
     architecture: "API Platform (Symfony 7.2) exposing a REST API, Angular 19 frontend, Docker containerisation.",
     value: "A maintainable, scalable codebase ready to accommodate new features without technical debt.",
     stack: ["Angular 19", "Symfony 7.2", "API Platform", "Docker"],
+    demo: "/projects/nimes-alerie/",
     repo: "https://github.com/Ninewashburn/Nimes-Alerie"
   },
   {
@@ -265,6 +268,7 @@ const PROJECTS_EN = [
     architecture: "Spring Boot (Java) API exposing a REST API, Angular frontend, PostgreSQL database.",
     value: "Reliable bookings and centralised availability management.",
     stack: ["Java", "Spring Boot", "Angular", "PostgreSQL"],
+    demo: "/projects/bagni-plage/",
     repo: "https://github.com/Ninewashburn/Bagni-Plage"
   }
 ];

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocole X-Invaders · La Nîmes'Alerie - Démo jouable</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  <span>⚠ <b>DÉMO JOUABLE</b> - extrait du projet La Nîmes'Alerie · stack réelle : Angular 19 · Symfony 7.2 · API Platform</span>
+  <span style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <a href="https://renaudmeynadier.com">← Portfolio</a>
+    <a href="https://github.com/Ninewashburn/Nimes-Alerie" target="_blank">GitHub ↗</a>
+  </span>
+</div>
+
+<header class="app">
+  <div class="brand">🚀 La Nîmes'Alerie</div>
+  <nav class="main"><span>Boutique</span><span>Articles</span><span class="on">Forum</span><span>Contact</span></nav>
+  <div class="hdr-right"><span>Connexion</span><button class="pill">S'inscrire</button></div>
+</header>
+
+<main>
+  <div class="bc"><span>← RETOUR_BASE</span><span class="live">● LIVE_TRAINING_ACTIVE</span></div>
+  <div class="title-row">
+    <div>
+      <h1 class="title">Protocole <em>X-Invaders_V4</em></h1>
+      <div class="title-sub">MODULE D'ENTRAÎNEMENT TACTIQUE // PILOT: OPERATOR-01</div>
+    </div>
+    <div class="sysbars">
+      <div class="sysbar m"><b>SYSTEM INTEGRITY</b><div class="t"><div></div></div></div>
+      <div class="sysbar c"><b>COMMS LINK</b><div class="t"><div></div></div></div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <!-- LEFT -->
+    <div class="side">
+      <div class="spanel">
+        <h4>SIMULATOR_STATS</h4>
+        <div class="stat"><b>SESSION_SCORE</b><div class="score" id="score">000000000</div></div>
+        <div class="gain" id="gain">+0 PTS_GAIN</div>
+        <div class="stat-row">
+          <div class="stat"><b>TARGET_WAVE</b><div class="wave" id="wave">01</div></div>
+          <div class="stat"><b>DEFENSE_UNITS</b><div class="units" id="units">▲ ▲ ▲</div></div>
+        </div>
+      </div>
+      <div class="spanel">
+        <h4>OPERATOR-01_MAPPING</h4>
+        <div class="map-row"><span class="key">←</span><span class="key">→</span><span class="fn">LAT_THRUST</span></div>
+        <div class="map-row"><span class="key">X_KEY</span><span class="fn">PLASMA_BURST</span></div>
+        <div class="map-row init" id="btn-init"><span class="key">ENTER</span><span class="fn">INITIATE</span></div>
+      </div>
+    </div>
+
+    <!-- CENTER -->
+    <div>
+      <div class="console">
+        <canvas id="cv" width="480" height="560"></canvas>
+        <div class="knobs"><div class="knob"></div><div class="knob"></div><div style="flex:1"></div><div class="kbtn"></div><div class="kbtn"></div><div class="kbtn"></div></div>
+      </div>
+      <div class="touch">
+        <button id="m-left">◀</button>
+        <button id="m-fire">✦ TIR</button>
+        <button id="m-right">▶</button>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="side">
+      <div class="spanel know">
+        <h4>🛰 ARCHIVES_MODULE</h4>
+        <p><b>LE SAVIEZ-VOUS ?</b></p>
+        <p><span class="hl">Space Invaders</span> est un archétype du shoot'em up sorti en 1978. Il aurait entraîné une pénurie de pièces de 100 yens au Japon !</p>
+        <div class="brief" style="margin-top:1rem">
+          <h5>TACTICAL_BRIEFING</h5>
+          <li>Détruisez les vagues aliens pour sécuriser les routes commerciales.</li>
+          <li>Le laser plasma nécessite une accréditation de Rang Delta.</li>
+        </div>
+        <div class="powered">POWERED BY <b>RENAUD AKA 'WASHBURN'</b><br>LA NÎMES'ALERIE TACTICAL SYSTEMS © 2126</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="app">
+  <span><b>La Nîmes'Alerie</b> - Le premier hub spatial pour animaux domestiques certifié par la Galaxie. Démo portfolio.</span>
+  <span class="stack">Angular 19 · Symfony 7.2 · API Platform</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

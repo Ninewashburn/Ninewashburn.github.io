@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bagni Plage · Démo - Réservation & pilotage</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-banner">
+  <span>⚠ <b>DÉMO INTERACTIVE</b> - données fictives · projet réel : Spring Boot 3 · Java 21 · Angular 21 · PostgreSQL · Docker</span>
+  <span style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+    <button class="reset" id="reset-btn">⟲ Réinitialiser</button>
+    <a href="https://renaudmeynadier.com">← Portfolio</a>
+    <a href="https://github.com/Ninewashburn/Bagni-Plage" target="_blank">GitHub ↗</a>
+  </span>
+</div>
+
+<header class="app">
+  <div class="brand">
+    <div class="dot">⛱</div>
+    <div><b>Bagni Plage</b><small>Réservation &amp; guide côtier</small></div>
+  </div>
+  <nav class="main">
+    <button data-view="home" class="on" onclick="show('home')">Accueil</button>
+    <button data-view="book" onclick="show('book')">Réserver</button>
+    <button data-view="dash" onclick="show('dash')">Dashboard gérant</button>
+  </nav>
+  <div class="hdr-right">
+    <button class="icon-btn" id="theme-btn" title="Mode nuit">☾</button>
+    <button class="btn-cta" onclick="startBooking('med')">Réserver</button>
+  </div>
+</header>
+
+<main>
+  <!-- ═══ HOME ═══ -->
+  <section class="view active" id="view-home">
+    <div class="wrap">
+      <div class="hero">
+        <div class="kicker">Bagni Plage Méditerranée</div>
+        <h1>Réservez votre plage, préparez votre journée.</h1>
+        <p>Choisissez votre site, réservez votre parasol et retrouvez votre Bagni Pass depuis votre compte. Démo : la réservation alimente le dashboard du concessionnaire.</p>
+        <div class="hero-ctas">
+          <button class="btn-cta" onclick="startBooking('med')">Réserver un parasol</button>
+          <button class="btn-ghost" onclick="show('dash')">Voir le dashboard gérant</button>
+        </div>
+        <div class="chips"><span class="chip">Saison ouverte</span><span class="chip">QR Pass inclus</span><span class="chip">Réservation en 4 étapes</span></div>
+      </div>
+
+      <div class="sec-k">Comment ça marche</div>
+      <h2 class="sec">Réserver sa plage comme une séance</h2>
+      <div class="steps">
+        <div class="step-card"><div class="step-num">1</div><b>Choisissez une plage</b><p>Comparez les ambiances, services, tarifs et disponibilités.</p></div>
+        <div class="step-card"><div class="step-num">2</div><b>Sélectionnez votre parasol</b><p>Repérez l'emplacement sur le plan et ajoutez le mobilier souhaité.</p></div>
+        <div class="step-card"><div class="step-num">3</div><b>Présentez votre Bagni Pass</b><p>Retrouvez votre réservation, votre facture et votre accès QR.</p></div>
+      </div>
+
+      <div class="sec-k">Nos plages</div>
+      <h2 class="sec">Plusieurs ambiances, une réservation simple</h2>
+      <div class="beaches">
+        <div class="beach">
+          <div class="thumb t1">⛱</div>
+          <div class="beach-body">
+            <div class="beach-loc">Le Grau-du-Roi, Camargue</div>
+            <h3>Bagni Plage Méditerranée</h3>
+            <p class="desc">Grande plage familiale, restaurants proches et promenades en front de mer.</p>
+            <div class="beach-row"><b>Dès 40 € / jour</b><small>Mai à septembre</small></div>
+            <div class="beach-acts">
+              <button class="btn-sm line" onclick="startBooking('med')">Voir la plage</button>
+              <button class="btn-sm terra" onclick="startBooking('med')">Réserver</button>
+            </div>
+            <div class="beach-tags"><span class="btag">Parking à 8 min</span><span class="btag">Restaurants à pied</span><span class="btag">Activités nautiques</span></div>
+          </div>
+        </div>
+        <div class="beach">
+          <div class="thumb t2">🌅</div>
+          <div class="beach-body">
+            <div class="beach-loc">Antibes, Côte d'Azur</div>
+            <h3>Bagni Pinède</h3>
+            <p class="desc">Ambiance calme, pins parasols, criques et coucher de soleil.</p>
+            <div class="beach-row"><b>Dès 52 € / jour</b><small>Juin à septembre</small></div>
+            <div class="beach-acts">
+              <button class="btn-sm line" onclick="startBooking('pin')">Voir la plage</button>
+              <button class="btn-sm terra" onclick="startBooking('pin')">Réserver</button>
+            </div>
+            <div class="beach-tags"><span class="btag">Zone premium</span><span class="btag">Paddle matinal</span><span class="btag">Vue baie</span></div>
+          </div>
+        </div>
+        <div class="beach">
+          <div class="thumb t3">🚲</div>
+          <div class="beach-body">
+            <div class="beach-loc">Canet-en-Roussillon, Perpignan</div>
+            <h3>Bagni Roussillon</h3>
+            <p class="desc">Grande plage méditerranéenne, dunes douces, marché catalan et pistes cyclables.</p>
+            <div class="beach-row"><b>Dès 35 € / jour</b><small>Mai à septembre</small></div>
+            <div class="beach-acts">
+              <button class="btn-sm line" onclick="startBooking('rou')">Voir la plage</button>
+              <button class="btn-sm terra" onclick="startBooking('rou')">Réserver</button>
+            </div>
+            <div class="beach-tags"><span class="btag">Accès vélo</span><span class="btag">Marché catalan</span><span class="btag">Promenade littorale</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WIZARD ═══ -->
+  <section class="view" id="view-book">
+    <div class="wrap" style="max-width:1020px">
+      <div class="wz-head">
+        <button class="back-link" onclick="show('home')">‹ Retour</button>
+        <h1>Nouvelle réservation</h1>
+      </div>
+      <div class="wz-steps" id="wz-steps"></div>
+
+      <!-- Step 1 -->
+      <div class="panel" id="st1">
+        <div class="f-grid">
+          <div class="fld"><label>Plage</label>
+            <select id="b-beach">
+              <option value="med">Bagni Plage Méditerranée - Le Grau-du-Roi</option>
+              <option value="pin">Bagni Pinède - Antibes</option>
+              <option value="rou">Bagni Roussillon - Canet-en-Roussillon</option>
+            </select></div>
+          <div class="fld"><label>Date d'arrivée</label><input type="date" id="b-from"></div>
+          <div class="fld"><label>Date de départ</label><input type="date" id="b-to"></div>
+        </div>
+        <div class="wz-acts"><span></span><button class="btn-main" onclick="goStep(2)">Voir le plan des parasols →</button></div>
+      </div>
+
+      <!-- Step 2 : grille -->
+      <div class="panel" id="st2" style="display:none">
+        <div class="notice">✓ <span id="avail-count">-</span> parasol(s) disponible(s) sur la période</div>
+        <p style="font-size:.85rem;margin-bottom:1rem">Sélectionnez un cercle disponible sur le plan. Les premières files sont les plus proches de la mer et affichent un tarif plus élevé.</p>
+        <div class="sea-bar">≈&nbsp; MER · FILE 1 (LA PLUS PROCHE, TARIF PREMIUM)</div>
+        <div class="grid-wrap" id="grid"></div>
+        <div class="legend">
+          <span><i class="ldot" style="background:var(--spot);border:1px solid var(--spot-b)"></i>Disponible</span>
+          <span><i class="ldot" style="background:var(--occ)"></i>Occupé</span>
+          <span><i class="ldot" style="background:var(--terra)"></i>Sélectionné</span>
+        </div>
+        <div class="recap">
+          <div><b>Plage</b><span id="r-beach">-</span></div>
+          <div><b>File</b><span id="r-row">-</span></div>
+          <div><b>Emplacement</b><span id="r-spot">-</span></div>
+          <div><b>Prix/jour</b><span id="r-price">-</span></div>
+        </div>
+        <div class="statusbar" id="statusbar"></div>
+        <div class="wz-acts">
+          <button class="btn-back" onclick="goStep(1)">Retour</button>
+          <button class="btn-main" id="btn-equip" disabled onclick="goStep(3)">Choisir l'équipement →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 : équipement -->
+      <div class="panel" id="st3" style="display:none">
+        <h3 style="margin-bottom:1rem">Mobilier &amp; options</h3>
+        <div class="equip" id="equip-list"></div>
+        <div class="sum" id="sum3"></div>
+        <div class="wz-acts">
+          <button class="btn-back" onclick="goStep(2)">Retour</button>
+          <button class="btn-main" onclick="goStep(4)">Continuer vers le paiement →</button>
+        </div>
+      </div>
+
+      <!-- Step 4 : paiement -->
+      <div class="panel" id="st4" style="display:none">
+        <h3 style="margin-bottom:1rem">Récapitulatif &amp; paiement</h3>
+        <div class="sum" id="sum4"></div>
+        <div class="pay-state" id="pay-state"></div>
+        <div class="wz-acts">
+          <button class="btn-back" onclick="goStep(3)">Retour</button>
+          <button class="btn-main" id="btn-pay" onclick="pay()">💳 Payer avec PayPal Sandbox</button>
+        </div>
+      </div>
+
+      <!-- Step 5 : confirmation -->
+      <div class="panel" id="st5" style="display:none">
+        <span class="conf-ok">✓ Paiement sandbox accepté</span>
+        <h3 style="margin-bottom:.4rem">Votre Bagni Pass est prêt</h3>
+        <p style="font-size:.85rem;color:var(--muted)">Demande transmise au concessionnaire - statut <b>EN ATTENTE</b> de validation. Retrouvez-la dans le dashboard gérant.</p>
+        <div class="qr-box">
+          <div class="qr" id="qr"></div>
+          <div>
+            <b style="font-family:var(--serif);font-size:1.05rem">Accès plage + mobilier</b><br>
+            <small style="color:var(--muted)">À présenter à votre arrivée</small><br>
+            <code id="ref" style="font-size:.8rem"></code>
+          </div>
+        </div>
+        <div class="sum" id="sum5"></div>
+        <div class="wz-acts">
+          <button class="btn-back" onclick="startBooking(state.booking.beach)">Nouvelle réservation</button>
+          <button class="btn-main" onclick="show('dash')">Voir le dashboard gérant →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DASHBOARD ═══ -->
+  <section class="view" id="view-dash">
+    <div class="dash">
+      <aside>
+        <div class="dnav">
+          <button class="on">▦ Tableau de bord</button>
+          <button onclick="toast('🗓 Planning - non inclus dans la démo')">🗓 Planning</button>
+          <button onclick="toast('📖 Guide touristique - non inclus dans la démo')">📖 Guide touristique</button>
+          <button>🎫 Réservations <span class="bdg" id="nav-bdg">0</span></button>
+          <button onclick="show('book')">＋ Nouvelle réservation</button>
+          <button onclick="toast('👥 Clients - non inclus dans la démo')">👥 Clients</button>
+          <button onclick="toast('✅ Check-in - non inclus dans la démo')">✅ Check-in</button>
+        </div>
+      </aside>
+      <div class="dmain">
+        <div class="dhero">
+          <div>
+            <div class="k">Bagni Plage</div>
+            <h1>Pilotage de la concession</h1>
+            <p>Vue opérationnelle des demandes, de l'occupation et du chiffre d'affaires validé.</p>
+          </div>
+          <button class="btn-cta" onclick="toast('Les demandes sont listées ci-dessous 👇')">Traiter les demandes</button>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>Demandes en attente</b><div class="v" id="kpi-att">0</div><small>À valider ou refuser</small></div>
+          <div class="kpi"><b>Réservations validées</b><div class="v" id="kpi-val">0</div><small>Saison en cours</small></div>
+          <div class="kpi"><b>Occupation</b><div class="v" id="kpi-occ">0%</div><small>288 parasols suivis</small></div>
+          <div class="kpi"><b>CA validé</b><div class="v" id="kpi-ca">0 €</div><small id="kpi-cli">- clients enregistrés</small></div>
+        </div>
+        <div class="dcols">
+          <div class="dpanel">
+            <div class="k">Priorité</div>
+            <h3>Demandes à traiter</h3>
+            <div id="list-pending"></div>
+          </div>
+          <div class="dpanel">
+            <div class="k">Planning</div>
+            <h3>Dernières réservations</h3>
+            <div id="list-recent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="app">
+  <span>© 2026 Bagni Plage - Démo portfolio, données fictives</span>
+  <span>Conditions de réservation · Confidentialité · Contact</span>
+</footer>
+
+<div id="toasts"></div>
+<script src="app.js"></script>
+</body>
+</html>
