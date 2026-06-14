@@ -546,6 +546,10 @@ themeBtn.addEventListener("click", () => {
     audio.addEventListener("play", () => render(true));
     audio.addEventListener("pause", () => render(false));
     audio.addEventListener("ended", () => render(false));
+    // Onglet masqué / minimisé : on met en pause pour ne pas jouer dans le vide
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && !audio.paused) audio.pause();
+    });
   }
 }
 
