@@ -461,6 +461,53 @@ ${missing.length ? missing.join(", ") : "(aucun)"}`;
   document.querySelectorAll(".steps .step").forEach(b =>
     b.addEventListener("click", () => go(+b.dataset.go)));
 
+  /* Visite guidée - lancée au clic, interruptible à tout moment */
+  (function tour() {
+    const btn = $("btnTour");
+    if (!btn) return;
+    const STEPS = [
+      { n: 1, fill: true, title: "Les deux matières premières", text: "On a chargé un exemple : une offre d'emploi et un CV. Tout reste éditable à la main." },
+      { n: 2, title: "Matching offre / CV", text: "La couverture des mots-clés de l'offre est calculée localement, sans IA." },
+      { n: 3, title: "Adaptation en direct", text: "Tu modifies le CV au centre ; le score se recalcule à chaque frappe, dans le panneau de droite." },
+      { n: 4, title: "La preuve par le diff", text: "Chaque ajout est tracé. Tu confirmes qu'il est vrai et prouvable avant d'exporter." },
+    ];
+    let i = -1, box = null;
+
+    function fillSample() {
+      ["offre", "cv"].forEach(k => {
+        const ta = $(k === "offre" ? "offreInput" : "cvInput");
+        ta.value = SAMPLES[k === "offre" ? "offre-dev" : "cv-dev"];
+        ta.dispatchEvent(new Event("input"));
+      });
+    }
+    function show(idx) {
+      i = idx;
+      const s = STEPS[i], last = i === STEPS.length - 1;
+      if (s.fill) fillSample();
+      go(s.n);
+      box.innerHTML =
+        `<div class="tour-step">Étape ${i + 1} / ${STEPS.length}</div>
+         <h4>${s.title}</h4>
+         <p>${s.text}</p>
+         <div class="tour-actions">
+           <button type="button" class="tour-skip">Passer</button>
+           <button type="button" class="tour-next">${last ? "Terminer" : "Suivant →"}</button>
+         </div>`;
+      box.querySelector(".tour-skip").addEventListener("click", end);
+      box.querySelector(".tour-next").addEventListener("click", () => last ? end() : show(i + 1));
+      box.querySelector(".tour-next").focus();
+    }
+    function start() {
+      if (!box) { box = document.createElement("div"); box.className = "tour-pop";
+        box.setAttribute("role", "dialog"); box.setAttribute("aria-live", "polite");
+        document.body.appendChild(box); }
+      box.hidden = false; show(0);
+    }
+    function end() { if (box) box.hidden = true; btn.focus(); }
+    btn.addEventListener("click", start);
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && box && !box.hidden) end(); });
+  })();
+
   /* Démarrage */
   hydrate();
   go(startStep);

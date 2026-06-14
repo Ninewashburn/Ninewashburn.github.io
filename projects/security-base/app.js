@@ -121,12 +121,24 @@ function renderToolbar() {
   $('btn-diff').style.display = p.diff ? '' : 'none';
   $('btn-gest').style.display = p.gest ? '' : 'none';
 }
+const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)');
+function countTo(el, target) {
+  const from = parseInt(el.textContent, 10) || 0;
+  if (prefersReduce.matches || from === target) { el.textContent = target; return; }
+  const dur = 500, t0 = performance.now();
+  function tick(t) {
+    const p = Math.min(1, (t - t0) / dur);
+    el.textContent = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3))); // easeOutCubic
+    if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+  }
+  requestAnimationFrame(tick);
+}
 function renderCounters() {
   const act = state.data.filter(i => !i.deleted && i.statut !== 'Archivé');
-  $('count-total').textContent = act.length;
-  $('count-enc').textContent = act.filter(i => i.statut === 'En cours').length;
-  $('count-clo').textContent = act.filter(i => i.statut === 'Cloturé').length;
-  $('count-att').textContent = act.filter(i => i.statut === 'En attente de validation').length;
+  countTo($('count-total'), act.length);
+  countTo($('count-enc'), act.filter(i => i.statut === 'En cours').length);
+  countTo($('count-clo'), act.filter(i => i.statut === 'Cloturé').length);
+  countTo($('count-att'), act.filter(i => i.statut === 'En attente de validation').length);
 }
 
 function renderTable() {

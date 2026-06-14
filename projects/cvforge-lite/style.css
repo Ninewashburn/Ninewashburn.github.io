@@ -104,6 +104,76 @@ button { font: inherit; cursor: pointer }
 
 .reset:hover { border-color: var(--del); color: var(--del) }
 
+/* Bouton de lancement de la visite guidée */
+.tour-launch {
+  background: var(--ember-soft);
+  border: 1px solid #E7C3A8;
+  color: var(--ember-dark);
+  border-radius: 8px;
+  font: 600 13px var(--sans);
+  padding: 10px 14px
+}
+
+.tour-launch:hover { background: #F6E0D2 }
+
+/* Bulle flottante de la visite guidée (non bloquante) */
+.tour-pop {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: min(420px, calc(100vw - 32px));
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 14px 44px rgba(28, 27, 23, .20);
+  padding: 16px 18px
+}
+
+.tour-pop .tour-step {
+  font: 700 10.5px var(--mono);
+  letter-spacing: .1em;
+  color: var(--ember);
+  margin-bottom: 6px
+}
+
+.tour-pop h4 { font: 700 15px var(--serif); margin: 0 0 4px }
+.tour-pop p { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0 0 14px }
+
+.tour-actions { display: flex; justify-content: space-between; align-items: center; gap: 10px }
+
+.tour-skip {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font: 600 13px var(--sans);
+  text-decoration: underline;
+  padding: 6px 4px
+}
+
+.tour-skip:hover { color: var(--del) }
+
+.tour-next {
+  background: var(--ember);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font: 600 14px var(--sans);
+  padding: 9px 16px
+}
+
+.tour-next:hover { background: var(--ember-dark) }
+
+@media (prefers-reduced-motion: no-preference) {
+  .tour-pop { animation: tour-in .2s ease both }
+}
+
+@keyframes tour-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px) }
+  to   { opacity: 1; transform: translateX(-50%) }
+}
+
 /* Stepper */
 .steps {
   display: flex;

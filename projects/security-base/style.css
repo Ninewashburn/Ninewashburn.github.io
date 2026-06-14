@@ -476,6 +476,28 @@ table.inc tbody tr:hover {
   background: rgba(37, 99, 235, .05)
 }
 
+/* fade-in léger et échelonné des lignes (désactivé si reduced-motion) */
+@media (prefers-reduced-motion: no-preference) {
+  table.inc tbody tr {
+    animation: row-in .28s ease both
+  }
+  table.inc tbody tr:nth-child(1) { animation-delay: .00s }
+  table.inc tbody tr:nth-child(2) { animation-delay: .03s }
+  table.inc tbody tr:nth-child(3) { animation-delay: .06s }
+  table.inc tbody tr:nth-child(4) { animation-delay: .09s }
+  table.inc tbody tr:nth-child(5) { animation-delay: .12s }
+  table.inc tbody tr:nth-child(6) { animation-delay: .15s }
+  table.inc tbody tr:nth-child(7) { animation-delay: .18s }
+  table.inc tbody tr:nth-child(8) { animation-delay: .21s }
+  table.inc tbody tr:nth-child(9) { animation-delay: .24s }
+  table.inc tbody tr:nth-child(n+10) { animation-delay: .27s }
+}
+
+@keyframes row-in {
+  from { opacity: 0; transform: translateY(4px) }
+  to   { opacity: 1; transform: none }
+}
+
 .chips {
   display: flex;
   gap: .25rem;
