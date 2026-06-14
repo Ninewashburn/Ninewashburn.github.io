@@ -40,6 +40,8 @@ const UI = {
 const ICONS = {
   sun:      '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
   moon:     '<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>',
+  play:     '<path d="M7 5l12 7-12 7z"/>',
+  pause:    '<path d="M8 5v14M16 5v14"/>',
   file:     '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h6"/>',
   download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/>',
   chevron:  '<path d="m6 9 6 6 6-6"/>',
@@ -526,6 +528,26 @@ applyTheme(savedTheme);
 themeBtn.addEventListener("click", () => {
   applyTheme(document.documentElement.classList.contains("light-theme") ? "dark" : "light");
 });
+
+/* ---- Présentation audio (lecture à la demande) ---------------------------- */
+{
+  const audioBtn = document.getElementById("audio-toggle");
+  if (audioBtn) {
+    const audio = new Audio("/portfolio.mp3");
+    audio.preload = "none";
+    const render = (playing) => {
+      audioBtn.innerHTML = icon(playing ? "pause" : "play", 18);
+      audioBtn.setAttribute("aria-pressed", String(playing));
+    };
+    render(false);
+    audioBtn.addEventListener("click", () => {
+      if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+    });
+    audio.addEventListener("play", () => render(true));
+    audio.addEventListener("pause", () => render(false));
+    audio.addEventListener("ended", () => render(false));
+  }
+}
 
 /* ---- Boutons à icône (data-icon) ------------------------------------------ */
 document.querySelectorAll("[data-icon]").forEach((el) => {

@@ -108,12 +108,24 @@ button { font: inherit; cursor: pointer }
 .steps {
   display: flex;
   gap: 6px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding-block: 10px;
-  margin-bottom: 26px;
+  position: relative;
+  padding-block: 16px;
+  margin-bottom: 34px;
   overflow-x: auto
 }
+
+.steps::before,
+.steps::after {
+  content: "";
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  background: var(--line)
+}
+
+.steps::before { top: 0 }
+.steps::after { bottom: 0 }
 
 .step {
   flex: 1;
@@ -547,16 +559,26 @@ details.copilote[open] summary::before { content: "▾ " }
   background: #FAFAF7
 }
 
-footer {
-  margin: 48px 0 36px;
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
+footer.wrap {
+  position: relative;
+  margin: 56px auto 40px;
+  padding-top: 26px;
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
   font: 600 10.5px var(--mono);
   letter-spacing: .1em;
   color: var(--muted)
+}
+
+footer.wrap::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: 0;
+  height: 1px;
+  background: var(--line)
 }
 
 /* Print */
