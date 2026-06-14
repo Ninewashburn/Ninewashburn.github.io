@@ -111,13 +111,49 @@ document.getElementById('theme-btn').addEventListener('click', () => {
   r.dataset.theme = next;
   document.getElementById('theme-btn').textContent = next === 'dark' ? '☀' : '☾';
 });
-document.getElementById('refresh-btn').addEventListener('click', () => {
+/* léger jitter des 4 métriques pour simuler un flux temps réel */
+function nudge() {
+  const j = v => v * (0.98 + Math.random() * 0.04);
   TEAMS.forEach(tm => {
-    tm.freq = +(tm.freq * (0.97 + Math.random() * 0.06)).toFixed(1);
-    tm.cfr  = +(tm.cfr  * (0.97 + Math.random() * 0.06)).toFixed(1);
+    tm.freq = +j(tm.freq).toFixed(1);
+    tm.lead = +j(tm.lead).toFixed(1);
+    tm.cfr  = +j(tm.cfr).toFixed(1);
+    tm.ttr  = Math.round(j(tm.ttr));
   });
-  ago = 0; renderAll();
-});
+  ago = 0;
+}
+
+/* refresh manuel : reconstruit tout (barres animées depuis 0) */
+document.getElementById('refresh-btn').addEventListener('click', () => { nudge(); renderAll(); });
+
+/* tick live : met à jour les valeurs en place → dérive fluide via la transition CSS */
+function liveTick() {
+  nudge();
+  document.getElementById('ago').textContent = '0';
+  renderKpis();
+  renderTable();
+  const bars = document.querySelectorAll('#charts .bfill');
+  let i = 0;
+  METRICS.forEach(m => TEAMS.forEach(tm => {
+    const b = bars[i++];
+    if (b) b.style.width = Math.max(1.2, Math.min(100, tm[m.key] / m.max * 100)) + '%';
+  }));
+}
+
+/* Flux temps réel : les métriques bougent en continu (avec garde-fous a11y) */
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const liveBtn = document.getElementById('live-btn');
+let liveTimer = null;
+function setLive(on) {
+  clearInterval(liveTimer);
+  liveTimer = on ? setInterval(() => { if (!document.hidden) liveTick(); }, 3500) : null;
+  liveBtn.classList.toggle('on', !!liveTimer);
+  liveBtn.setAttribute('aria-pressed', String(!!liveTimer));
+}
+liveBtn.addEventListener('click', () => setLive(!liveTimer));
+reduceMotion.addEventListener('change', e => { if (e.matches) setLive(false); });
+// auto-démarrage, sauf si l'utilisateur préfère réduire les animations
+setLive(!reduceMotion.matches);
 document.getElementById('csv-btn').addEventListener('click', () => {
   const head = 'team;region;deploy_freq_per_day;lead_time_h;cfr_pct;ttr_min';
   const rows = TEAMS.map(tm => [tm.name, tm.region, tm.freq, tm.lead, tm.cfr, tm.ttr].join(';'));

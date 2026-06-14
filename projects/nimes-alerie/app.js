@@ -131,8 +131,8 @@ function draw(){
   cx.fillStyle='#000'; cx.fillRect(0,0,W,H);
   cx.textAlign='left'; cx.font='10px "JetBrains Mono",monospace';
   cx.fillStyle='#34D058'; cx.fillText('REC [●] SIMULATION_IN_PROGRESS', 14, 22);
-  cx.textAlign='center'; cx.font='16px "JetBrains Mono",monospace'; cx.fillStyle='#fff';
-  cx.fillText('SCORE: '+score, W/2, 24);
+  cx.textAlign='right'; cx.font='16px "JetBrains Mono",monospace'; cx.fillStyle='#fff';
+  cx.fillText('SCORE: '+score, W-14, 24);
 
   if(mode==='idle' || mode==='over'){
     cx.font='italic 800 26px Archivo,sans-serif'; cx.fillStyle='#fff';

@@ -344,6 +344,16 @@ body {
 
 select.hbtn { padding: .38rem .5rem }
 
+.live-btn { color: var(--muted) }
+.live-btn.on { color: #34A853; border-color: #34A853 }
+@media (prefers-reduced-motion: no-preference) {
+  .live-btn.on { animation: live-pulse 2s ease-in-out infinite }
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1 }
+  50% { opacity: .55 }
+}
+
 .crumb {
   display: flex;
   justify-content: space-between;

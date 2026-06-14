@@ -782,6 +782,12 @@ table.inc tbody tr:hover {
   .actions-2col {
     grid-template-columns: 1fr
   }
+
+  /* Titre + bouton thème sur la 1re ligne, nav repoussée en dessous */
+  nav.main {
+    order: 3;
+    flex-basis: 100%
+  }
 }
 
 .a-box {
