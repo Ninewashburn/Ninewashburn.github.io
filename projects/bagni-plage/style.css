@@ -5,7 +5,7 @@
   --terra:#BC5545; --terra-d:#A84A3B; --teal:#2F6D74; --green:#3E7C4F; --amber:#B07A28;
 }
 [data-theme="light"]{
-  --bg:#F2E9DC; --panel:#FBF6EC; --card:#FFFDF7; --ink:#2B2118; --muted:#8A7B6C;
+  --bg:#F2E9DC; --panel:#FBF6EC; --card:#FFFDF7; --ink:#2B2118; --muted:#6E5F4F;
   --border:rgba(43,33,24,.13); --chip:#EADFCB; --spot:#DCE8DA; --spot-b:#A9C4A6;
   --occ:#E2DBD0; --hero:linear-gradient(135deg,#F2E9DC 0%,#EAD9C2 100%);
 }
@@ -19,7 +19,7 @@ button{font-family:inherit;cursor:pointer}
 h1,h2,h3,.serif{font-family:var(--serif)}
 
 /* demo banner */
-.demo-banner{background:#E8622A;color:#fff;padding:.5rem 1.25rem;font-size:.78rem;
+.demo-banner{background:#C5502A;color:#fff;padding:.5rem 1.25rem;font-size:.78rem;
   display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .demo-banner a{color:#fff;font-weight:700}
 .demo-banner .reset{background:rgba(0,0,0,.22);border:none;color:#fff;border-radius:4px;padding:.28rem .7rem;font-size:.74rem}

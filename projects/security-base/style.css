@@ -15,7 +15,7 @@
   --panel: #FFF;
   --border: #E2E8F0;
   --text: #1F2933;
-  --muted: #64748B;
+  --muted: #5C6675;
   --faible: #3B82F6;
   --moyen: #EAB308;
   --grave: #F97316;
@@ -23,7 +23,7 @@
   --ok: #16A34A;
   --warn: #D97706;
   --danger: #DC2626;
-  --demo: #E8622A;
+  --demo: #C5502A;
   font-size: 14px;
 }
 
