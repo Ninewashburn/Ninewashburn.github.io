@@ -135,7 +135,7 @@ function draw(){
   cx.fillText('SCORE: '+score, W-14, 24);
 
   if(mode==='idle' || mode==='over'){
-    cx.font='italic 800 26px Archivo,sans-serif'; cx.fillStyle='#fff';
+    cx.textAlign='center'; cx.font='italic 800 26px Archivo,sans-serif'; cx.fillStyle='#fff';
     cx.fillText(mode==='idle'?'PROTOCOLE X-INVADERS':'SIMULATION TERMINÉE', W/2, H/2-46);
     if(mode==='over'){ cx.font='14px "JetBrains Mono",monospace'; cx.fillStyle='#D946EF';
       cx.fillText('SCORE FINAL : '+score, W/2, H/2-14); }

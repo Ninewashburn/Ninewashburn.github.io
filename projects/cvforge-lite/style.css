@@ -228,6 +228,13 @@ button { font: inherit; cursor: pointer }
 .step:not([disabled]):not([aria-current="step"]):hover { background: #ECECE6 }
 .step[disabled] { opacity: .45; cursor: not-allowed }
 
+/* Mobile : les 4 étapes tiennent sur une ligne (plus de débordement de l'étape 4) */
+@media (max-width: 640px) {
+  .step { min-width: 0; padding: 8px 6px }
+  .step .n { font-size: 9.5px }
+  .step .t { font-size: 11px; white-space: normal; line-height: 1.15 }
+}
+
 /* Sections */
 section[data-step] {
   display: none;
