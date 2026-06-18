@@ -69,7 +69,7 @@ const PROJECTS_FR = [
   {
     name: "Security-Base",
     tagline: "Projet personnel · Architecture inspirée d'environnements professionnels",
-    status: { label: "Portfolio / Anonymisé", cls: "portfolio" },
+    status: { label: "Projet métier / Anonymisé", cls: "portfolio" },
     img: "/assets/images/projects/security-base.png",
     context: "Pilotage des incidents dans un environnement métier sensible, inspiré d'un contexte professionnel.",
     problem: "Le suivi des incidents était éclaté, les droits d'accès flous et la traçabilité insuffisante pour répondre aux exigences d'audit.",
