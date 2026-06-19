@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://renaudmeynadier.com/sitemap.xml
+Sitemap: https://www.renaudmeynadier.com/sitemap.xml

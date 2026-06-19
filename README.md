@@ -26,8 +26,10 @@ Version anglaise : <https://www.renaudmeynadier.com/en/>
 │   └── index.html      - page principale (EN)
 ├── projects/           - démos interactives autonomes (un dossier = une démo)
 │   ├── security-base/  - gestion d'incidents, RBAC 4 rôles (inspiré du projet Laravel/Angular)
-│   ├── dora-dashboard/ - métriques DORA multi-équipes, FR/EN (inspiré du projet Angular/FastAPI)
-│   └── cvforge-lite/   - assistant CV local-first, matching par mots-clés (prototype)
+│   ├── cvforge-lite/   - assistant CV local-first, matching par mots-clés + visite guidée (prototype)
+│   ├── dora-dashboard/ - métriques DORA multi-équipes, flux live, FR/EN (inspiré du projet Angular/FastAPI)
+│   ├── nimes-alerie/   - mini-jeu Space Invaders sur canvas (refonte e-commerce Angular/Symfony)
+│   └── bagni-plage/    - réservation d'emplacements + dashboard gérant (Java/Spring/Angular)
 └── assets/
     ├── cv/
     │   ├── renaud-meynadier-cv-classique.pdf
@@ -47,7 +49,8 @@ Chaque démo suit la même structure (`index.html` + `style.css` + `app.js`), es
 - **Thème clair / sombre** - détection `prefers-color-scheme` au premier rendu (sans flash), persistance `localStorage`
 - **Navigation mobile** - menu hamburger avec animation CSS, fermeture Échap / clic extérieur
 - **Projets** - rendu dynamique depuis les données JS, filtrage par technologie (Angular, Java/Spring, Laravel…)
-- **Démos interactives** - trois projets disposent d'une démo jouable dans le navigateur (bouton "Démo" sur la carte), ouverte dans un nouvel onglet
+- **Démos interactives** - cinq projets disposent d'une démo jouable dans le navigateur (bouton "Démo" sur la carte), ouverte dans un nouvel onglet ; Creasoka renvoie vers le vrai site en production
+- **Présentation audio** - bouton play/pause dans le header (pitch FR), fichier chargé à la demande, pause auto si l'onglet est masqué
 - **Études de cas** - modal accessible avec focus trap, `aria-labelledby`, restauration du focus à la fermeture
 - **Scroll spy** - lien actif dans la nav calculé sans `getBoundingClientRect` dans le handler (offsets pré-calculés)
 - **CV** - bouton split avec menu déroulant (visualiser / télécharger, deux formats)
