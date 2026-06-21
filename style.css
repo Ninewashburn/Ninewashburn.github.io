@@ -1898,7 +1898,28 @@ section {
     }
 
     .header-inner {
-        padding: 14px 20px;
+        padding: 14px 16px;
+    }
+
+    /* Header compact : 4 contrôles + logo doivent tenir sans rogner le « EN » */
+    .logo {
+        font-size: 0.95rem;
+        gap: 7px;
+    }
+
+    .header-actions {
+        gap: 6px;
+    }
+
+    .icon-btn,
+    .nav-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .lang-switch {
+        padding: 6px 8px;
+        font-size: 0.73rem;
     }
 
     .hero {
