@@ -40,6 +40,14 @@ nav.main button.on{background:rgba(188,85,69,.13);color:var(--terra);font-weight
 .btn-cta:hover{background:var(--terra-d)}
 .icon-btn{background:none;border:1px solid var(--border);border-radius:9px;width:36px;height:36px;font-size:.95rem;color:var(--ink)}
 
+/* header mobile : ligne 1 = marque + contrôles à droite, ligne 2 = nav pleine largeur */
+@media(max-width:640px){
+  header.app{gap:.7rem 1rem;padding:.7rem 1rem}
+  .brand{flex:1;min-width:0}
+  nav.main{order:3;flex-basis:100%}
+  nav.main button{flex:1;text-align:center}
+}
+
 /* views */
 main{flex:1}
 .view{display:none;animation:fade .3s ease}
