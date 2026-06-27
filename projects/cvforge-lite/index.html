@@ -40,7 +40,7 @@
     <button class="step" data-go="1" type="button"><span class="n">01</span><span class="t">Sources</span></button>
     <button class="step" data-go="2" type="button"><span class="n">02</span><span class="t">Analyse</span></button>
     <button class="step" data-go="3" type="button"><span class="n">03</span><span class="t">Adaptation</span></button>
-    <button class="step" data-go="4" type="button"><span class="n">04</span><span class="t">Diff &amp; Export</span></button>
+    <button class="step" data-go="4" type="button"><span class="n">04</span><span class="t">Avant / Après &amp; Export</span></button>
   </nav>
 
   <main class="wrap">
@@ -70,6 +70,17 @@
           </div>
         </div>
       </div>
+
+      <div class="card linkedin-card">
+        <label for="linkedinInput">Profil LinkedIn - optionnel, pour repérer ce qui manque</label>
+        <p class="li-tip">Télécharge ton profil LinkedIn en PDF, puis copie-colle le texte ici. Il n'est <strong>jamais exporté</strong> : il sert seulement à révéler ce que ton CV oublie - c'est toi qui décides quoi ajouter.</p>
+        <textarea id="linkedinInput" placeholder="Colle ici le texte de ton profil LinkedIn (optionnel)…"></textarea>
+        <div class="samples">
+          <button class="btn-link" type="button" data-sample="linkedin-dev">Exemple - dev</button>
+          <button class="btn-link" type="button" data-sample="linkedin-gestion">Exemple - hors tech</button>
+        </div>
+      </div>
+
       <div class="row">
         <span class="hint">Les deux textes : minimum ~40 caractères.</span>
         <div class="spacer"></div>
@@ -92,14 +103,19 @@
               <div class="score-fill" id="scoreFill" style="width:0%"></div>
             </div>
             <span class="hint">Couverture pondérée par la fréquence des mots-clés dans l'offre.</span>
+            <div class="score-potential" id="scorePotential" hidden></div>
           </div>
         </div>
         <div class="kw-group">
           <div class="kw-title">✓ COUVERT PAR TON CV</div>
           <div class="chips" id="chipsOk"></div>
         </div>
+        <div class="kw-group" id="groupLi" hidden>
+          <div class="kw-title">↗ SUR TON LINKEDIN, PAS ENCORE SUR LE CV - À AJOUTER SI PROUVABLE</div>
+          <div class="chips" id="chipsLi"></div>
+        </div>
         <div class="kw-group">
-          <div class="kw-title">? ABSENT DE TON CV</div>
+          <div class="kw-title" id="missTitle">? ABSENT DE TON CV</div>
           <div class="chips" id="chipsMiss"></div>
         </div>
         <div class="callout"><strong>Manquant ≠ à inventer.</strong> Pour chaque mot-clé absent, pose-toi la question :
@@ -162,7 +178,7 @@
               id="liveMissCount">0 manquants</span></div>
           <p class="live-miss-title">? ENCORE ABSENTS</p>
           <div class="live-chips" id="liveMiss"></div>
-          <p class="live-note">Rappel : n'ajoute que du prouvable. Le Diff vérifiera chaque ajout à l'étape suivante.
+          <p class="live-note">Rappel : n'ajoute que du prouvable. L'étape suivante « Avant / Après » vérifiera chaque ajout.
           </p>
         </aside>
       </div>
@@ -170,13 +186,13 @@
       <div class="row">
         <button class="btn btn-ghost" type="button" data-go="2">← Analyse complète</button>
         <div class="spacer"></div>
-        <button class="btn btn-primary" type="button" data-go="4">Vérifier dans le Diff</button>
+        <button class="btn btn-primary" type="button" data-go="4">Vérifier l'avant / après</button>
       </div>
     </section>
 
     <!-- ÉTAPE 4 - DIFF & EXPORT -->
     <section data-step="4">
-      <p class="eyebrow">ÉTAPE 04 - LA PREUVE PAR LE DIFF</p>
+      <p class="eyebrow">ÉTAPE 04 - TU VOIS TOUT, TU VALIDES TOUT</p>
       <h2>Qu'est-ce qui a changé, exactement ?</h2>
       <p class="lead">Chaque mot ajouté ou retiré est tracé. Avant d'exporter, tu confirmes que chaque ajout est vrai et
         prouvable. C'est le contrat CVForge.</p>
@@ -223,7 +239,7 @@
   <footer class="wrap">
     <span>ANTI-HALLUCINATION : RIEN N'EST INVENTÉ</span>
     <span>LOCAL-FIRST : RIEN NE SORT SANS TON GESTE</span>
-    <span>PREUVE PAR LE DIFF : TOUT EST TRACÉ</span>
+    <span>AVANT / APRÈS : TOUT EST TRACÉ</span>
   </footer>
 
   <div id="printable" aria-hidden="true"></div>
