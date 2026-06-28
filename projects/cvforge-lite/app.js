@@ -7,7 +7,7 @@
 
   /* État */
   const S = {
-    step: 1, offre: "", cv: "", adapted: "", kws: null, matching: null,
+    step: 1, offre: "", cv: "", linkedin: "", adapted: "", kws: null, matching: null,
     diffSig: null, segs: [], confirmed: new Set(), exports: []
   };
 
@@ -79,7 +79,51 @@ Vos missions :
 Profil :
 - Vous maîtrisez Excel et les tableaux croisés dynamiques
 - Une première expérience en facturation est exigée
-- La connaissance d'un CRM et d'un ERP est un plus`
+- La connaissance d'un CRM et d'un ERP est un plus`,
+
+    "linkedin-dev":
+      `Lina Carvalho
+Développeuse Fullstack · Caen · linkedin.com/in/linacarvalho
+
+À propos
+Développeuse fullstack qui aime livrer des produits fiables et bien testés.
+
+Expérience
+Développeuse fullstack - Atelier Numérique (2023 - aujourd'hui)
+Angular, TypeScript, Spring Boot et PostgreSQL au quotidien. J'ai mis en place le
+déploiement continu avec GitLab CI/CD et l'orchestration des conteneurs sous Kubernetes.
+Suivi des métriques applicatives avec Grafana.
+
+Développeuse junior - WebFabrik (2022 - 2023)
+Intégration responsive, sites e-commerce.
+
+Compétences
+Angular · TypeScript · Spring Boot · PostgreSQL · Docker · Kubernetes · GitLab CI/CD · Scrum · Grafana
+
+Bénévolat
+Mentore dans une association d'initiation au code.`,
+
+    "linkedin-gestion":
+      `Karim Bensaïd
+Assistant de gestion · Rouen · linkedin.com/in/karimbensaid
+
+À propos
+Rigoureux et organisé, j'aime fluidifier la gestion administrative et commerciale.
+
+Expérience
+Assistant de gestion - Transports Lemaire (2021 - aujourd'hui)
+Facturation, devis et relances clients. Gestion d'un CRM (HubSpot) pour le suivi
+commercial. Reporting via tableaux croisés dynamiques sous Excel. Élaboration des
+plannings de tournées.
+
+Employé administratif - Mairie de Rouen (2019 - 2021)
+Archivage et mise à jour de tableaux Excel.
+
+Compétences
+Facturation · Devis · Relances · Sage · CRM HubSpot · Excel · Tableaux croisés dynamiques · Plannings
+
+Centres d'intérêt
+Bénévolat dans une association locale.`
   };
 
   /* Utilitaires */
@@ -160,7 +204,7 @@ Profil :
   /* Persistance */
   function payload() {
     return {
-      v: 1, step: S.step, offre: S.offre, cv: S.cv, adapted: S.adapted,
+      v: 1, step: S.step, offre: S.offre, cv: S.cv, linkedin: S.linkedin, adapted: S.adapted,
       exports: S.exports, diffSig: S.diffSig, confirmed: [...S.confirmed]
     };
   }
@@ -209,11 +253,14 @@ Profil :
     try { d = JSON.parse(el.textContent); } catch (e) { }
     if (!d || typeof d !== "object") return;
     S.offre = d.offre || ""; S.cv = d.cv || ""; S.adapted = d.adapted || "";
+    S.linkedin = d.linkedin || "";
     S.exports = Array.isArray(d.exports) ? d.exports : [];
     S.diffSig = ("diffSig" in d) ? d.diffSig : null;
     S.confirmed = new Set(Array.isArray(d.confirmed) ? d.confirmed : []);
     $("offreInput").value = S.offre;
     $("cvInput").value = S.cv;
+    $("linkedinInput").value = S.linkedin;
+    if (S.linkedin) { const r = $("revealLi"); if (r) r.open = true; }
     syncAnalyserBtn();
     renderTracking();
     if (d.step && canEnter(d.step)) startStep = d.step;
@@ -261,11 +308,15 @@ Profil :
   $("cvInput").addEventListener("input", e => {
     S.cv = e.target.value; touch(); syncAnalyserBtn(); refreshNav();
   });
+  $("linkedinInput").addEventListener("input", e => {
+    S.linkedin = e.target.value; touch(); if (S.step === 2) renderAnalyse();
+  });
   $("btnAnalyse").addEventListener("click", () => go(2));
+  const SAMPLE_TARGET = { cv: "cvInput", offre: "offreInput", linkedin: "linkedinInput" };
   document.querySelectorAll("[data-sample]").forEach(b => {
     b.addEventListener("click", () => {
-      const key = b.dataset.sample, isCV = key.startsWith("cv");
-      const ta = $(isCV ? "cvInput" : "offreInput");
+      const key = b.dataset.sample;
+      const ta = $(SAMPLE_TARGET[key.split("-")[0]] || "offreInput");
       ta.value = SAMPLES[key];
       ta.dispatchEvent(new Event("input"));
     });
@@ -274,18 +325,56 @@ Profil :
   /* Step 2 - analyse */
   function ensureKws() { if (!S.kws) S.kws = keywords(S.offre); return S.kws; }
   function renderAnalyse() {
-    S.matching = coverage(ensureKws(), S.cv);
-    const { res, score } = S.matching;
+    const kws = ensureKws();
+    const cvCov = coverage(kws, S.cv);
+    S.matching = cvCov;
+    const hasLi = S.linkedin.trim().length > 0;
+    const liCov = hasLi ? coverage(kws, S.linkedin) : null;
+    const liHit = {};
+    if (liCov) liCov.res.forEach(r => { liHit[r.k] = r.hit; });
+
+    const score = cvCov.score;
     $("scoreVal").textContent = score;
     $("scoreFill").style.width = score + "%";
     $("scoreVerdict").textContent =
       score >= 75 ? "Bonne couverture - l'adaptation servira surtout à prioriser." :
         score >= 50 ? "Couverture partielle - vérifie les manquants un par un." :
           "Couverture faible - cette offre est-elle vraiment la bonne cible ?";
-    const chip = r => `<span class="chip ${r.hit ? "chip-ok" : "chip-miss"}">${r.hit ? "✓" : "?"} ${esc(r.k)} <span class="f">×${r.f}</span></span>`;
-    const ok = res.filter(r => r.hit), miss = res.filter(r => !r.hit);
-    $("chipsOk").innerHTML = ok.length ? ok.map(chip).join("") : '<span class="hint">Aucun mot-clé couvert.</span>';
-    $("chipsMiss").innerHTML = miss.length ? miss.map(chip).join("") : '<span class="hint">Rien ne manque - couverture totale.</span>';
+
+    const onCv = [], onLi = [], nowhere = [];
+    cvCov.res.forEach(r => {
+      if (r.hit) onCv.push(r);
+      else if (liHit[r.k]) onLi.push(r);
+      else nowhere.push(r);
+    });
+    const chip = (r, cls, icon) => `<span class="chip ${cls}">${icon} ${esc(r.k)} <span class="f">×${r.f}</span></span>`;
+
+    $("chipsOk").innerHTML = onCv.length ? onCv.map(r => chip(r, "chip-ok", "✓")).join("") : '<span class="hint">Aucun mot-clé couvert.</span>';
+
+    $("groupLi").hidden = !hasLi;
+    if (hasLi) {
+      $("chipsLi").innerHTML = onLi.length
+        ? onLi.map(r => chip(r, "chip-li", "↗")).join("")
+        : '<span class="hint">Rien de plus à révéler depuis ton LinkedIn.</span>';
+    }
+
+    $("missTitle").textContent = hasLi ? "? ABSENT DU CV ET DE LINKEDIN - NE PAS INVENTER" : "? ABSENT DE TON CV";
+    const missList = hasLi ? nowhere : cvCov.res.filter(r => !r.hit);
+    const missCls = hasLi ? "chip-none" : "chip-miss";
+    $("chipsMiss").innerHTML = missList.length
+      ? missList.map(r => chip(r, missCls, "?")).join("")
+      : '<span class="hint">Rien ne manque - couverture totale.</span>';
+
+    if (hasLi) {
+      const tot = cvCov.res.reduce((s, r) => s + r.f, 0);
+      const cov = cvCov.res.reduce((s, r) => s + ((r.hit || liHit[r.k]) ? r.f : 0), 0);
+      const potential = tot ? Math.round(100 * cov / tot) : 0;
+      $("scorePotential").hidden = false;
+      $("scorePotential").innerHTML =
+        `CV seul : <span class="hl">${score}%</span> · CV + ce que tu peux légitimement ajouter depuis LinkedIn : <span class="hl">${potential}%</span> <span class="li-note">(potentiel - jamais un score envoyé)</span>`;
+    } else {
+      $("scorePotential").hidden = true;
+    }
   }
 
   /* Step 3 - adaptation + matching live */
@@ -469,7 +558,7 @@ ${missing.length ? missing.join(", ") : "(aucun)"}`;
       { n: 1, fill: true, title: "Les deux matières premières", text: "On a chargé un exemple : une offre d'emploi et un CV. Tout reste éditable à la main." },
       { n: 2, title: "Matching offre / CV", text: "La couverture des mots-clés de l'offre est calculée localement, sans IA." },
       { n: 3, title: "Adaptation en direct", text: "Tu modifies le CV au centre ; le score se recalcule à chaque frappe, dans le panneau de droite." },
-      { n: 4, title: "La preuve par le diff", text: "Chaque ajout est tracé. Tu confirmes qu'il est vrai et prouvable avant d'exporter." },
+      { n: 4, title: "Avant / après — tu vois tout, tu valides tout", text: "Chaque ajout est tracé. Tu confirmes qu'il est vrai et prouvable avant d'exporter." },
     ];
     let i = -1, box = null;
 

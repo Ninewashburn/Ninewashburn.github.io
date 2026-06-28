@@ -71,15 +71,17 @@
         </div>
       </div>
 
-      <div class="card linkedin-card">
-        <label for="linkedinInput">Profil LinkedIn - optionnel, pour repérer ce qui manque</label>
-        <p class="li-tip">Télécharge ton profil LinkedIn en PDF, puis copie-colle le texte ici. Il n'est <strong>jamais exporté</strong> : il sert seulement à révéler ce que ton CV oublie - c'est toi qui décides quoi ajouter.</p>
-        <textarea id="linkedinInput" placeholder="Colle ici le texte de ton profil LinkedIn (optionnel)…"></textarea>
-        <div class="samples">
-          <button class="btn-link" type="button" data-sample="linkedin-dev">Exemple - dev</button>
-          <button class="btn-link" type="button" data-sample="linkedin-gestion">Exemple - hors tech</button>
+      <details class="reveal" id="revealLi">
+        <summary>Profil LinkedIn - optionnel, pour repérer ce qui manque</summary>
+        <div class="reveal-body">
+          <p class="li-tip">Télécharge ton profil LinkedIn en PDF, puis copie-colle le texte ici. Il n'est <strong>jamais exporté</strong> : il sert seulement à révéler ce que ton CV oublie - c'est toi qui décides quoi ajouter.</p>
+          <textarea id="linkedinInput" placeholder="Colle ici le texte de ton profil LinkedIn (optionnel)…"></textarea>
+          <div class="samples">
+            <button class="btn-link" type="button" data-sample="linkedin-dev">Exemple - dev</button>
+            <button class="btn-link" type="button" data-sample="linkedin-gestion">Exemple - hors tech</button>
+          </div>
         </div>
-      </div>
+      </details>
 
       <div class="row">
         <span class="hint">Les deux textes : minimum ~40 caractères.</span>
