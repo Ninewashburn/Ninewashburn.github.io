@@ -1,10 +1,4 @@
-# Portfolio - Renaud Meynadier
-
-Portfolio statique de développeur full stack, publié avec GitHub Pages :
-
-<https://www.renaudmeynadier.com/>
-
-Version anglaise : <https://www.renaudmeynadier.com/en/>
+# Portfolio - Professionnel
 
 ## Stack
 
@@ -32,8 +26,8 @@ Version anglaise : <https://www.renaudmeynadier.com/en/>
 │   └── bagni-plage/    - réservation d'emplacements + dashboard gérant (Java/Spring/Angular)
 └── assets/
     ├── cv/
-    │   ├── renaud-meynadier-cv-classique.pdf
-    │   └── renaud-meynadier-cv-canva.pdf
+    │   ├── cv-classique.pdf
+    │   └── cv-canva.pdf
     └── images/
         ├── favicon.png
         ├── og-preview.png
